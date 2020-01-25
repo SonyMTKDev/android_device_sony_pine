@@ -22,7 +22,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from pine device
-$(call inherit-product, device/sony/pine/device.mk)
+$(call inherit-product, device/sony/pine/full_pine.mk)
 
 # Boot Animation
 TARGET_SCREEN_HEIGHT := 1280
