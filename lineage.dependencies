@@ -1,0 +1,8 @@
+[
+  {
+    "target_path": "kernel/sony/pine",
+    "repository":  "jmpfbmx/kernel_sony_pìne",
+    "remote":      "github",
+    "revision":    "cm-14.1"
+  }
+]
