@@ -1,0 +1,120 @@
+#
+# system.prop for Sony Xperia L1
+#
+
+# WIFI
+# MTK, Infinity, 20090720 {
+wifi.interface=wlan0
+# MTK, Infinity, 20090720 }
+
+# MTK, mtk03034, 20101210 {
+ro.mediatek.wlan.wsc=1
+# MTK, mtk03034 20101210}
+# MTK, mtk03034, 20110318 {
+ro.mediatek.wlan.p2p=1
+# MTK, mtk03034 20110318}
+
+# MTK, mtk03034, 20101213 {
+mediatek.wlan.ctia=0
+# MTK, mtk03034 20101213}
+
+#
+wifi.tethering.interface=ap0
+wifi.direct.interface=p2p0
+mediatek.wlan.chip=CONSYS_MT6735
+mediatek.wlan.module.postfix=_consys_mt6735
+#
+
+# FM
+fmradio.driver.enable=1
+
+# Mediatek Chip
+persist.mtk.wcn.combo.chipid=-1
+service.wcn.driver.ready=no
+service.wcn.coredump.mode=0
+ro.mediatek.chip_ver=S01
+ro.mediatek.platform=MT6737T
+ro.mediatek.version.sdk=4
+ro.mediatek.version.release=
+
+# Telephony
+rild.libpath=mtk-ril.so
+rild.libargs=-d /dev/ttyC0
+ro.telephony.default_network=9,1
+persist.radio.default.sim=0
+ril.flightmode.poweroffMD=0
+ril.telephony.mode=0
+ril.radiooff.poweroffMD=0
+ro.mtk_enable_md1=1
+ro.mtk_lte_support=1
+ro.telephony.sim.count=2
+persist.radio.fd.counter=7
+persist.radio.fd.off.counter=5
+persist.radio.fd.r8.counter=7
+persist.radio.fd.off.r8.counter=5
+ril.data.need.follow.on=0
+ril.specific.sm_cause=1
+bgw.current3gband=0
+ril.external.md=0
+ril.first.md=1
+ril.read.imsi=1
+
+ro.mtk_bt_support=1
+ro.mtk_cam_lomo_support=1
+ro.mtk_cam_mfb_support=3
+ro.mtk_wapi_support=1
+ro.mtk_wappush_support=1
+
+# Audio
+ro.camera.sound.forced=0
+ro.audio.silent=0
+
+# GPS
+ro.mtk_agps_app=1
+ro.mtk_gps_support=1
+ro.mtk_omacp_support=1
+
+# USB
+ro.sys.usb.mtp.whql.enable=0
+ro.sys.usb.storage.type=mtp
+ro.sys.usb.bicr=no
+ro.sys.usb.charging.only=yes
+
+# Power off opt in IPO
+sys.ipo.pwrdncap=2
+
+# Kernel
+ro.zygote.preload.enable=0
+ro.kernel.zio=38,108,105,16
+
+# Display
+ro.opengles.version=196609
+qemu.hw.mainkeys=0
+ro.sf.lcd_density=320
+
+# Disable dirty region for Mali
+debug.hwui.render_dirty_regions=false
+
+# Media / DRM
+drm.service.enabled=true
+
+# performance
+ro.mtk_perf_simple_start_win=1
+ro.mtk_perf_response_time=1
+
+#DALVIK-CACHE
+dalvik.vm.heapgrowthlimit=192m
+dalvik.vm.heapsize=512m
+persist.sys.dalvik.vm.lib.2=libart.so
+dalvik.vm.isa.arm64.variant=cortex-a53
+dalvik.vm.isa.arm64.features=default
+dalvik.vm.isa.arm.variant=cortex-a53
+dalvik.vm.isa.arm.features=default
+#dalvik.vm.heapgrowthlimit=128m
+#dalvik.vm.heapsize=256m
+
+# Aditional Features
+ro.secure=0
+ro.adb.secure=0
+persist.service.adb.enable=1
+persist.service.debuggable=1
