@@ -1,0 +1,17 @@
+#
+# Copyright (C) 2016 Sony Mobile Communications Inc.
+# All rights, including trade secret rights, reserved.
+#
+
+
+on init
+# SONY: Start the TrimArea Daemon. It must be started before fota-ua
+# start crashmonitorns
+
+on post-fs-data
+    mkdir /data/aee_exp 0755 root root
+    chmod /data/aee_exp 0755
+
+service crashmonitorns /system/bin/crashmonitorns
+    user root
+    class main

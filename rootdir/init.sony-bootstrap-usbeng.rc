@@ -1,0 +1,15 @@
+#
+# Copyright (C) 2014 Sony Mobile Communications Inc.
+# All rights, including trade secret rights, reserved.
+#
+
+#
+# init.sony-bootstrap-usbeng.rc
+#
+
+# Start usbeng
+service usbeng /system/bin/usbeng
+    user system
+    group system
+    class late_start
+    oneshot

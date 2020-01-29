@@ -1,0 +1,24 @@
+#
+# Copyright (C) 2014 Sony Mobile Communications Inc.
+# All rights, including trade secret rights, reserved.
+#
+
+#
+# init.sony-trimarea-tad-mtk.rc
+#
+
+on boot
+
+
+service ta_sync_md /system/bin/ta_sync_md
+    class main
+    user root
+    group system
+    oneshot   
+
+
+
+on post-fs-data
+    # Separate location for ta backup / restore flg on data
+    mkdir /data/prod 0770 root system
+

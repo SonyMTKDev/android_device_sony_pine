@@ -1,0 +1,18 @@
+#
+# Copyright (C) 2014 Sony Mobile Communications Inc.
+# All rights, including trade secret rights, reserved.
+#
+
+#
+# init.sony-trimarea-tad-mtk.rc
+#
+
+on init
+
+
+	service update_ta_info /system/bin/update_ta_info
+	class main
+	user root
+	oneshot
+
+

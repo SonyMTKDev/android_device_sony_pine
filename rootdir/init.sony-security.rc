@@ -1,0 +1,63 @@
+#
+# Copyright (C) 2014 Sony Mobile Communications Inc.
+# All rights, including trade secret rights, reserved.
+#
+
+#
+# init.sony-security.rc
+#
+
+
+# Start Security Daemon
+on post-fs-data
+    mkdir /data/credmgr 0770 system credmgr_client
+    mkdir /cache/pc 0770 radio system
+
+service secd /system/bin/secd
+    user system
+    group system
+    socket secd_ebl_sock stream 0660 system credmgr_client
+    socket secd_devsec_sock stream 0660 system credmgr_client
+    socket secd_credmgr_sock stream 0660 system credmgr_client
+    class main
+
+# Secure clock
+on post-fs-data
+    mkdir /data/scd 0755 system system
+    # create timestamp dir
+    mkdir /cache/sc 0700 root root
+
+on post-fs
+    # create directory for scd
+    mkdir /dev/socket/scd 0755 system system
+
+on property:gsm.nitz.time=*
+   start scdnotifier_nitz
+
+service scd /system/bin/scd
+    class late_start
+    user system
+    group system
+
+service scdnotifier_nitz /system/bin/scdnotifier nitz
+    class main
+    user system
+    group system
+    oneshot
+    disabled
+
+
+# tpm-service
+# Allows other system application to use tpm from java
+service tpm-service /system/bin/tpm-service
+    class late_start
+    user tpm-service
+    group system tpm-service trimarea drmrpc
+
+
+# Start tbase_helperd
+service tbase_helperd /system/bin/tbase_helperd
+    class late_start
+    user system
+    group system
+    oneshot

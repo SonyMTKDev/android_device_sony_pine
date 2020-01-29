@@ -1,0 +1,10 @@
+#
+#init.charge_loggingd.rc
+#
+
+service charge_loggingd /system/bin/charge_loggingd
+    class core
+    seclabel u:r:charge_loggingd:s0
+    group root system wakelock
+
+

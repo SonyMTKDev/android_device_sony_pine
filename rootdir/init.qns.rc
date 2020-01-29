@@ -1,0 +1,36 @@
+#
+# Copyright (C) 2014 Sony Mobile Communications Inc.
+# All rights, including trade secret rights, reserved.
+#
+
+#
+# init.qns.rc
+#
+
+on post-fs
+    start charge_logging
+
+on post-fs-data
+    chown qns qns /sys/class/qns
+    chown qns qns /sys/class/qns/alarm
+    chown qns qns /sys/class/qns/battery_type
+    chown qns qns /sys/class/qns/charge_current
+    chown qns qns /sys/class/qns/charging_state
+    chown qns qns /sys/class/qns/current_now
+    chown qns qns /sys/class/qns/design
+    chown qns qns /sys/class/qns/fcc
+    chown qns qns /sys/class/qns/options
+    chown qns qns /sys/class/qns/soc
+    chown qns qns /sys/class/qns/temp
+    chown qns qns /sys/class/qns/voltage
+    start qns
+
+service qns /system/bin/qns -l /qns/ -d /qns/
+    user qns
+    group qns
+    socket qnsbsd stream 660 qns system
+    disabled
+
+service charge_logging /system/bin/charge_logging
+   user root
+   disabled

@@ -1,0 +1,15 @@
+#
+# init.init.arima-s1.rc
+#
+
+# \vendor\arima\update_ta_info
+import init.arima-s1-update_ta_info.rc
+
+# \vendor\arima\ta_sync_md
+import init.arima-s1-ta_sync_md.rc
+
+
+#test
+on post-fs-data
+    # Separate location for ta backup / restore flg on data
+    mkdir /data/prod 0770 root system

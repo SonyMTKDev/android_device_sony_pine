@@ -1,0 +1,25 @@
+#
+# Copyright (C) 2016 Sony Mobile Communications Inc.
+# All rights, including trade secret rights, reserved.
+#
+
+#
+# init.sony-enterprise.rc
+#
+
+on fs
+    insmod /system/lib/modules/ecryptfs.ko
+
+on post-fs-data
+    mkdir /data/smime 0770 root smime_keystore
+    mkdir /persist/pc 0770 radio system
+    mkdir /data/system 0775 system system
+    mkdir /data/system/apfd 0770 system system
+    # Enterprise API configuration
+    setprop ro.support.irda 0
+
+# Native daemon for PacketFilter
+service apfd /system/bin/apfd
+    class main
+    socket apfd_socket stream 0660 root system
+    group system
