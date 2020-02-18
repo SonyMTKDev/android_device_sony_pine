@@ -14,7 +14,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 # Shim symbols
 PRODUCT_PACKAGES += \
     libmtk_symbols
-    
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -98,7 +98,7 @@ PRODUCT_PACKAGES += \
 #Display
 PRODUCT_PACKAGES += \
     libion
-
+ 
 # Graphic
 PRODUCT_PACKAGES += \
     libGLES_android \
@@ -147,10 +147,6 @@ PRODUCT_COPY_FILES += \
   frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml 
-
-# MediaTek Symbols
-PRODUCT_PACKAGES += \
-    libmtk_symbols
 
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
