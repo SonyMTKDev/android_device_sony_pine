@@ -39,6 +39,11 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
 on init
+# Shim libs
+    export LD_SHIM_LIBS \
+        "/system/vendor/lib/libui_ext.so|libmtk_symbols.so: \
+        /system/vendor/lib64/libui_ext.so|libmtk_symbols.so"
+
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
 
