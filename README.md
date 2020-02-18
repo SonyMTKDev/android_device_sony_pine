@@ -18,4 +18,11 @@ Rear Camera  | 13.0 MP
 Front Camera | 5.0 MP
 Release Date | March 2017
 
+### Credits:
+  - KJONES
+  - BILUX
+  - R0RTIZ2
+  - PAUL (SODP)
+  - Me
+  
 ![Sony XPERIA L1](https://fdn2.gsmarena.com/vv/pics/sony/sony-xperia-l1-0.jpg)
