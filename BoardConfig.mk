@@ -34,6 +34,7 @@ TARGET_USES_64_BIT_BINDER := true
 
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(shell pwd)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 TARGET_KERNEL_CONFIG := pine_defconfig
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/sony/pine
@@ -147,6 +148,9 @@ MALLOC_SVELTE := true
 # Disable API check
 WITHOUT_CHECK_API := true
 
+# Shims
+TARGET_LDPRELOAD += libmtk_symbols.so
+
 # TWRP
 ifneq (,$(strip $(wildcard bootable/recovery-twrp/twrp.cpp)))
 RECOVERY_VARIANT := twrp
@@ -165,7 +169,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 RECOVERY_SDCARD_ON_DATA := true
 TW_INCLUDE_FUSE_EXFAT := true
 TW_INCLUDE_FUSE_NTFS := true
-BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
+BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 TW_INCLUDE_FUSE_F2FS := true
 DEVICE_RESOLUTION := 720x1280
 TW_INCLUDE_CRYPTO := true
