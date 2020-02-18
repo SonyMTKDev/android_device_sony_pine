@@ -98,7 +98,14 @@ PRODUCT_PACKAGES += \
 #Display
 PRODUCT_PACKAGES += \
     libion
- 
+
+# Graphic
+PRODUCT_PACKAGES += \
+    libGLES_android \
+    libgralloc_extra \
+    libgui_ext \
+    libui_ext
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
