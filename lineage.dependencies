@@ -4,5 +4,11 @@
     "repository":  "jmpfbmx/kernel_sony_pìne",
     "remote":      "github",
     "revision":    "cm-14.1"
+  },
+  {
+    "target_path": "vendor/sony/pine",
+    "repository":  "jmpfbmx/vendor_sony_pine",
+    "remote":      "github",
+    "revision":    "cm-14.1
   }
 ]
