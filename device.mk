@@ -7,6 +7,12 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 DEVICE_PATH:= device/sony/pine
 
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+    LOCAL_KERNEL := device/sony/pine/prebuilts/kernel
+else
+    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
+
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal large xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
