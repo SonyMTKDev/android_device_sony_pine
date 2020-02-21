@@ -32,6 +32,10 @@ For 3.18 kernel
   - PAUL (SODP)
   - jmpfbmx
   - rote66
-  
+  - All developer who develop the mt6735 platform
   
 -Now is for the test,dont use it
+
+- process:
+-WIFI fixed
+

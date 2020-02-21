@@ -69,21 +69,21 @@ PRODUCT_COPY_FILES += \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:system/etc/etc/audio_policy_volumes.xml \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/default_volume_tables.xml:system/etc/etc/default_volume_tables.xml \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/etc/etc/r_submix_audio_policy_configuration.xml \
-    $(TOPDIR)frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/etc/usb_audio_policy_configuration.xml 
-    #$(DEVICE_PATH)/configs/AudioParamOptions.xml:system/etc/audio_param/AudioParamOptions.xml \
-    #$(DEVICE_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+    $(TOPDIR)frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/etc/usb_audio_policy_configuration.xml \
+    $(DEVICE_PATH)/configs/AudioParamOptions.xml:system/etc/audio_param/AudioParamOptions.xml \
+    $(DEVICE_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Bluetooth
 PRODUCT_PACKAGES += \
 	bluetooth.default
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf
 
 # Camera
 PRODUCT_PACKAGES += \
     Snap
 
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/prebuilts/Snap.apk:system/priv-app/Snap/Snap.apk
         
 # Display
@@ -116,10 +116,10 @@ PRODUCT_PACKAGES += \
     netd
 
 # Radio
-#PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0
 
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
 
 # IPv6 tethering
@@ -133,10 +133,10 @@ PRODUCT_PACKAGES += \
     hostapd \
     dhcpcd.conf \
     wpa_supplicant \
-    wpa_supplicant.conf 
-    #lib_driver_cmd_mt66xx
+    wpa_supplicant.conf \
+    lib_driver_cmd_mt66xx
 
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
     $(DEVICE_PATH)/configs/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
     $(DEVICE_PATH)/configs/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
@@ -147,7 +147,7 @@ PRODUCT_COPY_FILES += \
 
 # Media Extractors
 BOARD_SECCOMP_POLICY := \
-    $(DEVICE_PATH)/seccomp-policy
+    $(DEVICE_PATH)/seccomp
 
 #USB
 PRODUCT_PACKAGES += \
@@ -169,7 +169,7 @@ PRODUCT_PACKAGES += \
     libui_ext
 
 # Charger Mode
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     charger_res_images
 
 # Permissions
@@ -191,7 +191,7 @@ PRODUCT_COPY_FILES += \
 
 # wifi
 PRODUCT_COPY_FILES += \
-    #$(DEVICE_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    $(DEVICE_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     $(DEVICE_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
     $(DEVICE_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
     $(DEVICE_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
@@ -201,7 +201,7 @@ PRODUCT_COPY_FILES += \
   $(DEVICE_PATH)/configs/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml \
   $(DEVICE_PATH)/configs/media_codecs_mediatek_video.xml:system/etc/media_codecs_mediatek_video.xml \
   $(DEVICE_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-  #$(DEVICE_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+  $(DEVICE_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
   $(DEVICE_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
@@ -209,6 +209,6 @@ PRODUCT_COPY_FILES += \
   frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml 
 
 # Misc
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     librs_jni \
     libnl_2
