@@ -17,7 +17,9 @@ Battery | 2620 mAh (non-removable)
 Dimensions | 151 x 74 x 8.7 mm
 Display | 5.5" IPS LCD 720 x 1280 px
 Camera  | 13 MP, f/2.2, autofocus
+
 ![Sony XPERIA L1](https://fdn2.gsmarena.com/vv/pics/sony/sony-xperia-l1-0.jpg)
+
 Device for G3311
 
 For 3.18 kernel
@@ -31,11 +33,15 @@ For 3.18 kernel
   - R0RTIZ2
   - PAUL (SODP)
   - jmpfbmx
+  - divis1969
+  - DhiraJMS
   - rote66
-  - All developer who develop the mt6735 platform
+  - All developers who develop the mt6735 platform
+
   
 -Now is for the test,dont use it
 
-- process:
--WIFI fixed
+-process:
+- WIFI fixed
+- Battery status
 

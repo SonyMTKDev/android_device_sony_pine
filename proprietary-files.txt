@@ -1,3 +1,5 @@
+system/lib/libfs_mgr.so
+system/lib64/libfs_mgr.so
 vendor/etc/mtklog-config.prop
 vendor/etc/wide-dhcpv6
 vendor/etc/wide-dhcpv6/dhcp6s.conf

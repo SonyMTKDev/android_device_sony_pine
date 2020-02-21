@@ -1,3 +1,4 @@
+#
 # Copyright (C) 2008 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -11,24 +12,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
+LOCAL_PATH := $(my-dir)
 
-
-LOCAL_PATH:= $(call my-dir)
-# HAL module implemenation, not prelinked and stored in
-# hw/<COPYPIX_HARDWARE_MODULE_ID>.<ro.board.platform>.so
 include $(CLEAR_VARS)
-LOCAL_HEADER_LIBRARIES := libhardware_headers
 
-LOCAL_SRC_FILES := lights.c
-LOCAL_MULTILIB := both
-
-LOCAL_MODULE_TAGS := optional
-LOCAL_PRELINK_MODULE := false
-LOCAL_MODULE_RELATIVE_PATH := hw
-
-LOCAL_SHARED_LIBRARIES := liblog
-
-LOCAL_MODULE := lights.$(TARGET_BOARD_PLATFORM)
-LOCAL_PROPRIETARY_MODULE := true
+LOCAL_CFLAGS += $(LIBLOG_CFLAGS)
+LOCAL_MODULE := libxlog
+LOCAL_SRC_FILES := xlog.c
+LOCAL_C_INCLUDES += system/core/include/
+LOCAL_SHARED_LIBRARIES := libcutils liblog
 
 include $(BUILD_SHARED_LIBRARY)

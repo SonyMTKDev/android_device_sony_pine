@@ -17,6 +17,10 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
+
+# The gps config appropriate for this device
+$(call inherit-product, device/common/gps/gps_us_supl.mk)
+
 PRODUCT_CHARACTERISTICS := phone
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
@@ -29,8 +33,17 @@ else
     LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
+#RC
+TARGET_PROVIDES_INIT_RC := true
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/etc/init/audioserver.rc:system/etc/init/audioserver.rc \
+    $(DEVICE_PATH)/etc/init/mediacodec.rc:system/etc/init/mediacodec.rc \
+    $(DEVICE_PATH)/etc/init/cameraserver.rc:system/etc/init/cameraserver.rc \
+    $(DEVICE_PATH)/etc/init/rild.rc:system/etc/init/rild.rc \
+
 # Overlay
-#DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal large xhdpi
@@ -38,7 +51,10 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Shim symbols
 PRODUCT_PACKAGES += \
-    libmtk_symbols
+    libmtk_symbols \
+    libxlog \
+    libperfservicenative \
+    libcurl
 
 ifneq ($(TARGET_BUILD_VARIANT), user)
 # ADB Debugging
@@ -51,18 +67,19 @@ endif
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
-    audio_policy.stub \
+    #audio_policy.stub \
     audio.r_submix.default \
     audio.usb.default \
-    libalsautils \
+    #libalsautils \
     libaudio-resampler \
-    libaudioroute \
-    libaudiospdif \
-    libeffects \
+    #libaudioroute \
+    #libaudiospdif \
+    #libeffects \
     libtinyalsa \
     libtinycompress \
-    #libtinymix \
+    libtinymix \
     libtinyxml 
+    #libfs_mgr
 
 PRODUCT_COPY_FILES += \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/etc/etc/a2dp_audio_policy_configuration.xml \
@@ -71,7 +88,8 @@ PRODUCT_COPY_FILES += \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/etc/etc/r_submix_audio_policy_configuration.xml \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/etc/usb_audio_policy_configuration.xml \
     $(DEVICE_PATH)/configs/AudioParamOptions.xml:system/etc/audio_param/AudioParamOptions.xml \
-    $(DEVICE_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+    $(DEVICE_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
+    $(DEVICE_PATH)/configs/audio_device.xml:system/etc/audio_device.xml
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -90,8 +108,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libion
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
+
 # DRM
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     libdrm \
     libmockdrmcryptoplugin \
     libdrmclearkeyplugin \
@@ -100,30 +121,38 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
  lights.mt6737t \
  power.mt6737t \
+ power.default \
  local_time.default \
  audio.primary.default \
  vibrator.default \
- power.default \
  gralloc.default \
- librs_jni \
- gps.mt6737t
+ Torch \
+ librs_jni 
+ #gps.mt6737t
 
 #su
 PRODUCT_PACKAGES += \
 	su 
 # network
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     netd
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0
 
+# FM
+PRODUCT_PACKAGES += \
+    libfmjni \
+    FMRadio 
+
+
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
+    $(DEVICE_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml \
+    $(DEVICE_PATH)/configs/ecc_list.xml:system/etc/ecc_list.xml
 
 # IPv6 tethering
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
 
@@ -132,14 +161,12 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     dhcpcd.conf \
+    lib_driver_cmd_mt66xx \
     wpa_supplicant \
-    wpa_supplicant.conf \
-    lib_driver_cmd_mt66xx
+    wpa_supplicant.conf 
 
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
-    $(DEVICE_PATH)/configs/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
-    $(DEVICE_PATH)/configs/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
+    $(DEVICE_PATH)/configs/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf 
 
 #Ramdisk
 PRODUCT_COPY_FILES += \
@@ -154,12 +181,11 @@ PRODUCT_PACKAGES += \
  com.android.future.usb.accessory 
 
 # Default.prop
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+#PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1 \
     sys.usb.ffs.aio_compat=1 \
     ro.mount.fs=EXT4 \
     ro.mtk_key_manager_kb_path=1 
-
 
 # Graphic
 PRODUCT_PACKAGES += \
@@ -203,6 +229,7 @@ PRODUCT_COPY_FILES += \
   $(DEVICE_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
   $(DEVICE_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
   $(DEVICE_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+  $(DEVICE_PATH)/configs/mtk_omx_core.cfg:system/etc/mtk_omx_core.cfg \
   frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
@@ -210,5 +237,4 @@ PRODUCT_COPY_FILES += \
 
 # Misc
 PRODUCT_PACKAGES += \
-    librs_jni \
     libnl_2

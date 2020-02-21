@@ -8,10 +8,6 @@ TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 -include $(VENDOR_PATH)/BoardConfigVendor.mk
 -include $(DEVICE_PATH)/RecoveryConfig.mk
 
-# Bootanimation
-#TARGET_SCREEN_WIDTH := 1280
-#TARGET_SCREEN_HEIGHT := 720
-
 # Platform
 TARGET_BOARD_PLATFORM := mt6737t
 TARGET_BOARD_PLATFORM_GPU := mali-720mp2
@@ -91,6 +87,7 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 MTK_HWC_SUPPORT := yes
 MTK_HWC_VERSION := 1.5.0
+MTK_GPU_VERSION := mali midgard r20p0
 OVERRIDE_RS_DRIVER := libRSDriver_mtk.so
 #TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := false
 #TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := false
@@ -108,19 +105,17 @@ TARGET_OMX_LEGACY_RESCALING := true
 # GPS
 BOARD_GPS_LIBRARIES := true
 
-# Bootanimation
-#TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
-#TARGET_BOOTANIMATION_PRELOAD := true
-#TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-
 # Recovery
 BOARD_NO_SECURE_DISCARD := true
-#TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_EXT4 := true
 
 # RIL
 BOARD_RIL_CLASS := ../../../$(DEVICE_PATH)/ril
 
 # SELinux
+ifeq ($(SELINUX_PERMISSIVE),true)
+BOARD_KERNEL_CMDLINE +=  androidboot.selinux=permissive
+endif
 BOARD_SEPOLICY_DIRS := $(DEVICE_PATH)/sepolicy
 BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
 
@@ -156,16 +151,16 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 # OTA
 BLOCK_BASED_OTA := true
+TARGET_OTA_ASSERT_DEVICE := pine
+
 
 # Vold
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
+#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
 
 # Charger
-BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
-BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/BOOT/BOOT/boot/boot_mode
+#BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
+#BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/BOOT/BOOT/boot/boot_mode
 
-# OTA assert
-TARGET_OTA_ASSERT_DEVICE:= pine
 
 # Enable Minikin text layout engine (will be the default soon)
 USE_MINIKIN := true
