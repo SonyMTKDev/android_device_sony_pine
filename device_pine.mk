@@ -1,3 +1,19 @@
+#
+# Copyright (C) 2018 The LineageOS Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
@@ -13,6 +29,9 @@ else
     LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
+# Overlay
+#DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
+
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal large xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
@@ -20,6 +39,14 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 # Shim symbols
 PRODUCT_PACKAGES += \
     libmtk_symbols
+
+ifneq ($(TARGET_BUILD_VARIANT), user)
+# ADB Debugging
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.adb.secure=0 \
+    ro.debuggable=1 \
+    ro.secure=0
+endif
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -34,7 +61,34 @@ PRODUCT_PACKAGES += \
     libeffects \
     libtinyalsa \
     libtinycompress \
+    #libtinymix \
     libtinyxml 
+
+PRODUCT_COPY_FILES += \
+    $(TOPDIR)frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/etc/etc/a2dp_audio_policy_configuration.xml \
+    $(TOPDIR)frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:system/etc/etc/audio_policy_volumes.xml \
+    $(TOPDIR)frameworks/av/services/audiopolicy/config/default_volume_tables.xml:system/etc/etc/default_volume_tables.xml \
+    $(TOPDIR)frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/etc/etc/r_submix_audio_policy_configuration.xml \
+    $(TOPDIR)frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/etc/usb_audio_policy_configuration.xml 
+    #$(DEVICE_PATH)/configs/AudioParamOptions.xml:system/etc/audio_param/AudioParamOptions.xml \
+    #$(DEVICE_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+	bluetooth.default
+#PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf
+
+# Camera
+PRODUCT_PACKAGES += \
+    Snap
+
+#PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/prebuilts/Snap.apk:system/priv-app/Snap/Snap.apk
+        
+# Display
+PRODUCT_PACKAGES += \
+    libion
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -57,13 +111,16 @@ PRODUCT_PACKAGES += \
 #su
 PRODUCT_PACKAGES += \
 	su 
-#camera
-PRODUCT_PACKAGES += \
-    Snap
-
 # network
 PRODUCT_PACKAGES += \
     netd
+
+# Radio
+#PRODUCT_PROPERTY_OVERRIDES += \
+    ro.kernel.android.checkjni=0
+
+#PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
@@ -77,7 +134,13 @@ PRODUCT_PACKAGES += \
     dhcpcd.conf \
     wpa_supplicant \
     wpa_supplicant.conf 
-	
+    #lib_driver_cmd_mt66xx
+
+#PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
+    $(DEVICE_PATH)/configs/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
+    $(DEVICE_PATH)/configs/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
+
 #Ramdisk
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/rootdir,root)
@@ -97,20 +160,17 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.mount.fs=EXT4 \
     ro.mtk_key_manager_kb_path=1 
 
-# Bluetooth
-PRODUCT_PACKAGES += \
-	bluetooth.default
 
-#Display
-PRODUCT_PACKAGES += \
-    libion
- 
 # Graphic
 PRODUCT_PACKAGES += \
     libGLES_android \
     libgralloc_extra \
     libgui_ext \
     libui_ext
+
+# Charger Mode
+#PRODUCT_PACKAGES += \
+    charger_res_images
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -131,31 +191,24 @@ PRODUCT_COPY_FILES += \
 
 # wifi
 PRODUCT_COPY_FILES += \
+    #$(DEVICE_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     $(DEVICE_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
     $(DEVICE_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
     $(DEVICE_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
-
-# Audio Policy
-PRODUCT_COPY_FILES += \
-    $(TOPDIR)frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/etc/etc/a2dp_audio_policy_configuration.xml \
-    $(TOPDIR)frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:system/etc/etc/audio_policy_volumes.xml \
-    $(TOPDIR)frameworks/av/services/audiopolicy/config/default_volume_tables.xml:system/etc/etc/default_volume_tables.xml \
-    $(TOPDIR)frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/etc/etc/r_submix_audio_policy_configuration.xml \
-    $(TOPDIR)frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/etc/usb_audio_policy_configuration.xml \
 
 # CODECS
 PRODUCT_COPY_FILES += \
   $(DEVICE_PATH)/configs/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml \
   $(DEVICE_PATH)/configs/media_codecs_mediatek_video.xml:system/etc/media_codecs_mediatek_video.xml \
   $(DEVICE_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
+  #$(DEVICE_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
   $(DEVICE_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml 
 
-# call dalvik heap config
-$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
-
-# call hwui memory config
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+# Misc
+#PRODUCT_PACKAGES += \
+    librs_jni \
+    libnl_2

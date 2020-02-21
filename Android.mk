@@ -18,6 +18,8 @@ LOCAL_PATH := $(call my-dir)
 ifeq ($(TARGET_DEVICE),pine)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
+include $(CLEAR_VARS)
+
 ifneq ($(TARGET_PREBUILT_KERNEL),)
 # Some modules (ex. external/tinycompress depend on $(KERNEL_OUT)/usr,
 # but this folder is not created for prebuilt kernel, let'c create it
