@@ -42,7 +42,11 @@ on init
 # Shim libs
     export LD_SHIM_LIBS \
         "/system/vendor/lib/libui_ext.so|libmtk_symbols.so: \
-        /system/vendor/lib64/libui_ext.so|libmtk_symbols.so"
+         /system/vendor/lib64/libui_ext.so|libmtk_symbols.so: \
+         /system/vendor/lib/libnetutils.so|libmtk_symbols.so: \
+         /system/vendor/lib64/libnetutils.so|libmtk_symbols.so: \
+	 /system/vendor/lib/libcam_utils.so|libmtk_symbols.so: \
+	 /system/vendor/lib64/libcam_utils.so|libmtk_symbols.so"
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard

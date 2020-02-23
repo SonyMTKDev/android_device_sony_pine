@@ -119,7 +119,7 @@ PRODUCT_COPY_FILES += \
 
 #vendor_libs
 PRODUCT_PACKAGES += \
- lights.mt6737t \
+ #lights.mt6737t \
  power.mt6737t \
  power.default \
  local_time.default \
@@ -191,8 +191,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libGLES_android \
     libgralloc_extra \
-    libgui_ext \
-    libui_ext
+    libui_ext \
+    libgui_ext  
 
 # Charger Mode
 PRODUCT_PACKAGES += \
@@ -217,10 +217,7 @@ PRODUCT_COPY_FILES += \
 
 # wifi
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    $(DEVICE_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-    $(DEVICE_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    $(DEVICE_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
+    $(DEVICE_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf 
 
 # CODECS
 PRODUCT_COPY_FILES += \
