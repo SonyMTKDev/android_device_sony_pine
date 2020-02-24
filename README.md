@@ -36,12 +36,16 @@ For 3.18 kernel
   - divis1969
   - DhiraJMS
   - rote66
-  - All developers who develop the mt6735 platform
+  - All developers who develop the mtk platform
 
   
 -Now is for the test,dont use it
 
--process:
+- current process:
+
 - WIFI fixed
-- Battery status
+- Battery status fixed
+- Bluetooth fixed
+- OMX fixed
+
 

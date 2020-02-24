@@ -67,19 +67,15 @@ endif
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
-    #audio_policy.stub \
     audio.r_submix.default \
+    audio_policy.default \
+    libaudiopolicymanagerdefault \
     audio.usb.default \
-    #libalsautils \
     libaudio-resampler \
-    #libaudioroute \
-    #libaudiospdif \
-    #libeffects \
     libtinyalsa \
     libtinycompress \
     libtinymix \
     libtinyxml 
-    #libfs_mgr
 
 PRODUCT_COPY_FILES += \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/etc/etc/a2dp_audio_policy_configuration.xml \
@@ -111,15 +107,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
-# DRM
-#PRODUCT_PACKAGES += \
-    libdrm \
-    libmockdrmcryptoplugin \
-    libdrmclearkeyplugin \
-
 #vendor_libs
 PRODUCT_PACKAGES += \
- #lights.mt6737t \
+ lights.mt6737t \
  power.mt6737t \
  power.default \
  local_time.default \
@@ -127,15 +117,12 @@ PRODUCT_PACKAGES += \
  vibrator.default \
  gralloc.default \
  Torch \
- librs_jni 
- #gps.mt6737t
+ librs_jni \
+ gps.mt6737t
 
 #su
 PRODUCT_PACKAGES += \
 	su 
-# network
-#PRODUCT_PACKAGES += \
-    netd
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -151,11 +138,6 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml \
     $(DEVICE_PATH)/configs/ecc_list.xml:system/etc/ecc_list.xml
 
-# IPv6 tethering
-#PRODUCT_PACKAGES += \
-    ebtables \
-    ethertypes
-
 #wifi
 PRODUCT_PACKAGES += \
     libwpa_client \
@@ -166,7 +148,8 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf 
 
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf 
+    $(DEVICE_PATH)/configs/hostapd/hostapd_default.conf:system/etc/wifi/hostapd_default.conf \
+    $(DEVICE_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf 
 
 #Ramdisk
 PRODUCT_COPY_FILES += \
@@ -187,13 +170,12 @@ PRODUCT_PACKAGES += \
     ro.mount.fs=EXT4 \
     ro.mtk_key_manager_kb_path=1 
 
-# Graphic
+# NFC Packages
 PRODUCT_PACKAGES += \
-    libGLES_android \
-    libgralloc_extra \
-    libui_ext \
-    libgui_ext  
-
+    com.android.nfc_extras \
+    NfcNci \
+    Tag
+    
 # Charger Mode
 PRODUCT_PACKAGES += \
     charger_res_images
@@ -202,7 +184,30 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
+    frameworks/native/data/etc/android.hardware.faketouch.xml:system/etc/permissions/android.hardware.faketouch.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.camera.manual_sensor.xml:system/etc/permissions/android.hardware.camera.manual_sensor.xml \
+    frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml \
+    frameworks/native/data/etc/android.software.device_admin.xml:system/etc/permissions/android.software.device_admin.xml \
+    frameworks/native/data/etc/android.software.managed_users.xml:system/etc/permissions/android.software.managed_users.xml \
+    frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml \
+    frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
+    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
@@ -215,9 +220,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-# wifi
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf 
+# RIL
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.kernel.android.checkjni=0 \
+    ro.telephony.ril_class=MT6735 \
+    ro.telephony.ril.config=fakeiccid \
+    ro.com.android.mobiledata=false
 
 # CODECS
 PRODUCT_COPY_FILES += \

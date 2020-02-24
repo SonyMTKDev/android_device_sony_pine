@@ -45,6 +45,8 @@ on init
          /system/vendor/lib64/libui_ext.so|libmtk_symbols.so: \
          /system/vendor/lib/libnetutils.so|libmtk_symbols.so: \
          /system/vendor/lib64/libnetutils.so|libmtk_symbols.so: \
+	 /system/vendor/bin/program_binary_builder|libmtk_symbols.so: \
+	 /system/vendor/bin/vtservice|libmtk_symbols.so: \
 	 /system/vendor/lib/libcam_utils.so|libmtk_symbols.so: \
 	 /system/vendor/lib64/libcam_utils.so|libmtk_symbols.so"
 

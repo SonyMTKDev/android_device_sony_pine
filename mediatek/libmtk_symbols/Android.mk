@@ -19,14 +19,19 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
     mtk_audio.cpp \
+    mtk_audioCompat.c \
     mtk_fence.cpp \
     mtk_gui.cpp \
+    misc.cpp \
     mtk_ui.cpp \
     mtk_omx.cpp \
     icu55.c \
     icu53.c \
-    pthread.cpp \
-    ssl.c
+    program_binary_builder.cpp \
+    vtservice.cpp \
+    ssl.c \
+    mtk_gps.cpp \
+    mtk_bionic.cpp
 
 # only for 32bit libraries
 LOCAL_SRC_FILES_32 := mtk_string.cpp
@@ -34,8 +39,11 @@ LOCAL_SRC_FILES_32 := mtk_string.cpp
 LOCAL_SRC_FILES_64 := mtk_parcel.cpp
 
 LOCAL_SHARED_LIBRARIES := libbinder libutils liblog libgui libui \
-                          libicuuc libicui18n libcrypto libmedia libcutils
+                          libicuuc libicui18n libcrypto libmedia libcutils libstagefright_foundation libssl libc libaudiopolicymanagerdefault
 
+LOCAL_STATIC_LIBRARIES := \
+    libaudiopolicycomponents
+LOCAL_C_INCLUDES += frameworks/av/media/mtp/ system/core/include/ frameworks/rs/server/ frameworks/av/include/ hardware/libhardware/include/
 LOCAL_MODULE := libmtk_symbols
 LOCAL_MODULE_TAGS := optional
 
