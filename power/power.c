@@ -1,8 +1,8 @@
 /*
- * Copyright (C) 2012 The Android Open Source Project
+ * Copyright 2017 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ * You may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
@@ -12,26 +12,26 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * 
+ * This contains the module build definitions for the hardware-specific
+ * components for this device.
+ * As much as possible, those components should be built unconditionally,
+ * with device-specific names to avoid collisions, to avoid device-specific
+ * bitrot and build breakages. Building a component unconditionally does
+ * *not* include it on all devices, so it is safe even with hardware-specific
+ * components.
  */
 #include <errno.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <fcntl.h>
-#include <dlfcn.h>
+#include <string.h>
 #include <stdlib.h>
 
-#include <utils/Log.h>
-#include <cutils/log.h>
-#include <cutils/properties.h>
-#include <hardware/hardware.h>
-#include <hardware/power.h>
-#include <pthread.h>
-#include <hardware/hardware.h>
-#include <hardware/power.h>
-#include "power-feature.h"
-
 #define LOG_TAG "MTK PowerHAL"
+#include <utils/Log.h>
+
+#include <cutils/properties.h>
+
+#include <hardware/power.h>
 
 enum {
     PROFILE_POWER_SAVE,
@@ -41,7 +41,7 @@ enum {
 };
 
 #define POWER_NR_OF_SUPPORTED_PROFILES 4
-
+											   
 #define POWER_PROFILE_PROPERTY  "sys.perf.profile"
 #define POWER_SAVE_PROP         "0"
 #define BALANCED_PROP           "1"
@@ -106,22 +106,17 @@ static void set_power_profile(int profile)
     current_power_profile = profile;
 }
 
-
 static void power_hint(struct power_module *module __unused, power_hint_t hint,
                 void *data __unused)
 {
-    switch (hint) {
-      case POWER_HINT_SET_PROFILE:
-	  set_power_profile(*(int32_t *)data);
-      default:
-	  break;
-    }
+    if (hint == POWER_HINT_SET_PROFILE)
+        set_power_profile(*(int32_t *)data);
+	  
 }
 
 static void set_feature(struct power_module *module __unused,
                 feature_t feature, int state)
 {
-    set_device_specific_feature(module, feature, state);
 }
 
 static int get_feature(struct power_module *module __unused, feature_t feature)
@@ -145,10 +140,9 @@ struct power_module HAL_MODULE_INFO_SYM = {
         .author = "The Android Open Source Project",
         .methods = &power_module_methods,
     },
-
     .init = power_init,
-    .setInteractive = power_set_interactive,
     .powerHint = power_hint,
+    .setInteractive = power_set_interactive,
     .setFeature = set_feature,
     .getFeature = get_feature
 };

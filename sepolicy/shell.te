@@ -106,7 +106,6 @@ allow shell batterywarning_exec:file rx_file_perms;
 allow shell ccci_mdinit_exec:file rx_file_perms;
 allow shell dhcp6c_exec:file rx_file_perms;
 allow shell em_svr_exec:file rx_file_perms;
-allow shell sunwave_device:chr_file {open read write ioctl};
 allow shell memsicd3416x_exec:file rx_file_perms;
 allow shell pq_exec:file rx_file_perms;
 allow shell sn_exec:file rx_file_perms;

@@ -1,22 +1,21 @@
 #!/bin/bash
 cd ../../../..
 cd frameworks/av
-#git apply -v ../../device/sony/pine/patches/0001-frameworks_av.patch
-#patch -p1 < ../../device/sony/pine/patches/0001-frameworks_av.patch
-git apply -v ../../device/sony/pine/patches/av.patch
+git apply -v ../../device/sony/pine/patches/frameworks/av.patch
 cd ../..
 cd frameworks/base
-#git apply -v ../../device/sony/pine/patches/0002-frameworks_base.patch
-git apply -v ../../device/sony/pine/patches/base.patch
+git apply -v ../../device/sony/pine/patches/frameworks/base.patch
+git apply -v ../../device/sony/pine/patches/frameworks/base2.patch
 #cd ../..
-#cd frameworks/native
-#git apply -v ../../device/sony/pine/patches/0003-frameworks_native.patch
+cd frameworks/native
+git apply -v ../../device/sony/pine/patches/frameworks/native.patch
 cd ../..
 cd bionic
-git apply -v ../device/sony/pine/patches/0001-bionic.patch
+git apply -v ../device/sony/pine/patches/bionic/0001-bionic_if.patch
+git apply -v ../device/sony/pine/patches/bionic/bionic_libc.patch
 cd ..
 cd system/netd
-git apply -v ../../device/sony/pine/patches/0004-system_netd.patch
+git apply -v ../../device/sony/pine/patches/system/0004-system_netd.patch
 cd ../..
 cd system/core
 #git apply -v ../../device/sony/pine/patches/0005-system_core.patch

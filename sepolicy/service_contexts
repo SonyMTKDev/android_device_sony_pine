@@ -62,6 +62,3 @@ ismstedongle                u:object_r:radio_service:s0
 tedongleservice             u:object_r:radio_service:s0
 
 
-#fingerManager         u:object_r:system_server_service:s0
-fingerManager         u:object_r:fpserver_service:s0
-

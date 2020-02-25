@@ -1706,3 +1706,14 @@ on property:persist.batterymonitor.log=true
 on property:persist.batterymonitor.log=false
     stop ArimaBatMonLog
 # [Arima_8100][bozhi_lin] 20161201 end
+
+#service For init.d
+service run-parts /system/xbin/busybox run-parts /system/etc/init.d
+    class late_start
+    seclabel u:r:init:s0
+    user root
+    group root
+    disabled
+    oneshot
+
+#done

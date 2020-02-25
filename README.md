@@ -34,6 +34,7 @@ For 3.18 kernel
   - PAUL (SODP)
   - jmpfbmx
   - divis1969
+  - mohancm
   - DhiraJMS
   - rote66
   - All developers who develop the mtk platform
@@ -47,5 +48,5 @@ For 3.18 kernel
 - Battery status fixed
 - Bluetooth fixed
 - OMX fixed
-
+- Audio fixed
 

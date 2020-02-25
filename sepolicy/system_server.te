@@ -172,7 +172,6 @@ unix_socket_connect(system_server, wod_sim, epdg_wod)
 # Purpose: access for fp device
 allow system_server teei_fp_device:chr_file rw_file_perms;
 allow system_server teei_client_device:chr_file r_file_perms;
-allow system_server sunwave_device:chr_file {open read write ioctl};
 
 # Date : WK15.30
 # Operation : Migration

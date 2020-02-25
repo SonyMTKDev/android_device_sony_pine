@@ -54,7 +54,8 @@ PRODUCT_PACKAGES += \
     libmtk_symbols \
     libxlog \
     libperfservicenative \
-    libcurl
+    libcurl \
+    ibccci_util
 
 ifneq ($(TARGET_BUILD_VARIANT), user)
 # ADB Debugging
@@ -95,17 +96,14 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
-
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/prebuilts/Snap.apk:system/priv-app/Snap/Snap.apk
+    Snap 
         
 # Display
 PRODUCT_PACKAGES += \
     libion
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
+    $(DEVICE_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
 #vendor_libs
 PRODUCT_PACKAGES += \
@@ -117,8 +115,10 @@ PRODUCT_PACKAGES += \
  vibrator.default \
  gralloc.default \
  Torch \
- librs_jni \
- gps.mt6737t
+ librs_jni 
+ 
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml 
 
 #su
 PRODUCT_PACKAGES += \
@@ -149,7 +149,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/hostapd/hostapd_default.conf:system/etc/wifi/hostapd_default.conf \
-    $(DEVICE_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf 
+    $(DEVICE_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    $(DEVICE_PATH)/configs/nfc/nfcse.cfg:system/etc/nfcse.cfg \
+    $(DEVICE_PATH)/configs/nfc/nfc.cfg:system/etc/nfc.cfg 
 
 #Ramdisk
 PRODUCT_COPY_FILES += \
@@ -164,18 +166,21 @@ PRODUCT_PACKAGES += \
  com.android.future.usb.accessory 
 
 # Default.prop
-#PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1 \
+    ro.oem_unlock_supported=1 \
+    persist.service.acm.enable=0 \
+    persist.sys.dun.override=0 \
     sys.usb.ffs.aio_compat=1 \
     ro.mount.fs=EXT4 \
     ro.mtk_key_manager_kb_path=1 
 
-# NFC Packages
-PRODUCT_PACKAGES += \
+# NFC Packages 
+#PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     NfcNci \
     Tag
-    
+
 # Charger Mode
 PRODUCT_PACKAGES += \
     charger_res_images
@@ -221,11 +226,20 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
 # RIL
+PRODUCT_PACKAGES += \
+    muxreport \
+    gsm0710muxd \
+    terservice
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     ro.telephony.ril_class=MT6735 \
     ro.telephony.ril.config=fakeiccid \
     ro.com.android.mobiledata=false
+    
+#Sensor Calibration
+PRODUCT_PACKAGES += \
+    libem_sensor_jni
 
 # CODECS
 PRODUCT_COPY_FILES += \

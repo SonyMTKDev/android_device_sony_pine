@@ -570,13 +570,6 @@
 #
 /data/misc/sensor.log           u:object_r:bmm050_sensor_log_file:s0
 
-# Fingerprint device
-/dev/madev0     u:object_r:microarray_finger_device:s0
-# Fingerprint device
-# @{ droi.xushuai,20170118, add fp_ma096n
-/data/system/ma_fingerprint/* u:object_r:ma_data_file:s0
-# @}
-
 #############################
 # System files
 #

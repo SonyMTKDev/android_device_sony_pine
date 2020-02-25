@@ -53,9 +53,6 @@ allow system_app volte_rcs_ua:unix_stream_socket connectto;
 # Package: com.microtrust.mtee
 allow system_app teei_fp_device:chr_file rw_file_perms;
 allow system_app teei_client_device:chr_file r_file_perms;
-allow system_app sunwave_device:chr_file {open read write ioctl}; 
-allow system_app fpserver:binder call;  
-allow system_app system_server_service:service_manager {add};
 
 # Date: 2014/08/01
 # Operation: BaseUT
