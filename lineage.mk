@@ -15,39 +15,17 @@
 # limitations under the License.
 #
 
-## Specify phone tech before including full_phone
-#$(call inherit-product, vendor/cm/config/gsm.mk)
-#$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
-
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-
-# Inherit framework first
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
 # Release name
 PRODUCT_RELEASE_NAME := Xperia L1
 
 # Inherit some common Lineage stuff.
+#$(call inherit-product, vendor/cm/config/gsm.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/sony/pine/device_pine.mk)
-$(call inherit-product, vendor/sony/pine/pine-vendor.mk)
 
-# Configure dalvik heap
-$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
-
-# call hwui memory config
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
-
-# Boot Animation
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
-DEVICE_RESOLUTION := 720x1280
-TARGET_BOOT_ANIMATION_RES := 720
-TARGET_BOOTANIMATION_PRELOAD := true
-TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 
 ## Device identifier. This must come after all inclusions
 # Set those variables here to overwrite the inherited values.
