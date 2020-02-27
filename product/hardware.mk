@@ -27,8 +27,7 @@ PRODUCT_PACKAGES += \
     libmtk_symbols \
     libxlog \
     libperfservicenative \
-    libcurl \
-    ibccci_util
+    libcurl 
 
 #vendor_libs
 PRODUCT_PACKAGES += \
@@ -38,3 +37,7 @@ PRODUCT_PACKAGES += \
     vibrator.default \
     gralloc.default \
     Torch 
+
+# MTK Logging functions
+PRODUCT_PACKAGES += \
+    liblog_mtk

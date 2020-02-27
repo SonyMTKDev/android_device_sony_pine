@@ -1,8 +1,7 @@
 # RIL
 PRODUCT_PACKAGES += \
-    muxreport \
     gsm0710muxd \
-    terservice
+    libprotobuf-cpp-full
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
