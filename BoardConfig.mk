@@ -116,7 +116,7 @@ BOARD_RIL_CLASS := ../../../$(DEVICE_PATH)/ril
 ifeq ($(SELINUX_PERMISSIVE),true)
 BOARD_KERNEL_CMDLINE +=  androidboot.selinux=permissive
 endif
-BOARD_SEPOLICY_DIRS := $(DEVICE_PATH)/sepolicy
+#BOARD_SEPOLICY_DIRS := $(DEVICE_PATH)/sepolicy
 BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
 
 # Wireless
@@ -181,7 +181,7 @@ TARGET_EXCLUDES_AUDIOFX := true
 USE_CAMERA_STUB := true
 
 # Legacy HAL
-TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+#TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 # Backlights
 TARGET_PROVIDES_LIBLIGHT := true
