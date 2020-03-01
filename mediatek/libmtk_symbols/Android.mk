@@ -39,7 +39,7 @@ LOCAL_SRC_FILES_32 := mtk_string.cpp
 LOCAL_SRC_FILES_64 := mtk_parcel.cpp
 
 LOCAL_SHARED_LIBRARIES := libbinder libutils liblog libgui libui \
-                          libicuuc libicui18n libcrypto libmedia libcutils libstagefright_foundation libssl libc libaudiopolicymanagerdefault libdpframework
+                          libicuuc libicui18n libcrypto libmedia libcutils libstagefright_foundation libssl libc libaudiopolicymanagerdefault libdpframework libbase
 
 LOCAL_STATIC_LIBRARIES := \
     libaudiopolicycomponents

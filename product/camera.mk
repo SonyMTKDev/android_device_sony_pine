@@ -9,4 +9,5 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap 
+    Snap \
+    libcam_platform
