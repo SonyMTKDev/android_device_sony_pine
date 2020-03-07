@@ -26,28 +26,39 @@ For 3.18 kernel
 
 ===========================
 
+# Build Information
 
+### Current Working
+ * Hardware acceleration
+ * Wifi
+ * Bluetooth
+ * Vibration
+ * Audio
+ * Flashlight (statusbar and camera)
+ * Micro SD support
+ * MTP and Mass Storage modes
+ * RAM and ROM
+ * Rotation
+ * Camera rear/front (photographs only)
+ * Auto brightness
+ * Adjustable brightness
+ * GPS
+
+ ## Broken/Bugs
+ * Video_Camera
+ * RIL
+ * OMX
+ * Hotspot
+
+## To be checked
+ * Enforcing SELinux
+ 
 ### Credits:
   - KJONES
   - BILUX
   - R0RTIZ2
   - PAUL (SODP)
   - jmpfbmx
-  - divis1969
-  - mohancm
-  - DhiraJMS
   - rote66
   - All developers who develop the mtk platform
-
   
--Now is for the test,dont use it
-
-- current process:
-
-- WIFI fixed
-- Battery status fixed
-- Bluetooth fixed
-- OMX fixed(test)
-- Audio fixed
-- Camera fixed (exclude video recording)
-
