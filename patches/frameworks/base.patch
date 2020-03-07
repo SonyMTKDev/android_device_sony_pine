@@ -1,20 +1,20 @@
-From 8b4cf9493f5cb0a4c7651e6ccd1f4258ca4fb0c3 Mon Sep 17 00:00:00 2001
-From: Kai Jones <zaksenoj@icloud.com>
-Date: Sat, 14 Dec 2019 23:37:11 -0800
-Subject: [PATCH] mt8163: add required changes for mediatek
+From f1301d73bfd321636e2a12316a59bb3c87cb27dc Mon Sep 17 00:00:00 2001
+From: rote66 <pontifex23872388@gmail.com>
+Date: Sat, 7 Mar 2020 12:31:03 +0800
+Subject: [PATCH] for pine
 
-Change-Id: Ife614a8048852667828fef5daa80786e88af4754
-Signed-off-by: Kai Jones <zaksenoj@icloud.com>
+Change-Id: I87fb899a8c7d1b9361c8e28f23d1c4ad3042d598
 ---
- core/jni/android_media_AudioSystem.cpp    | 137 ++++++++++++++++++++++
- media/java/android/media/AudioSystem.java |  55 +++++++++
- 2 files changed, 192 insertions(+)
+ core/jni/android_media_AudioSystem.cpp    | 138 +++++++++++++++++++++-
+ core/jni/fd_utils-inl.h                   |   4 +-
+ media/java/android/media/AudioSystem.java |  57 ++++++++-
+ 3 files changed, 195 insertions(+), 4 deletions(-)
 
 diff --git a/core/jni/android_media_AudioSystem.cpp b/core/jni/android_media_AudioSystem.cpp
-index 49760021209..9eb073dc8f2 100644
+index 49760021209..f690ed3b754 100644
 --- a/core/jni/android_media_AudioSystem.cpp
 +++ b/core/jni/android_media_AudioSystem.cpp
-@@ -1743,6 +1743,136 @@ android_media_AudioSystem_systemReady(JNIEnv *env, jobject thiz)
+@@ -1743,7 +1743,136 @@ android_media_AudioSystem_systemReady(JNIEnv *env, jobject thiz)
      return nativeToJavaStatus(AudioSystem::systemReady());
  }
  
@@ -92,7 +92,7 @@ index 49760021209..9eb073dc8f2 100644
 +    env->ReleaseByteArrayElements(javaEmParamter, AudioCustomVolumeParameter, JNI_ABORT);
 +    return index;
 +}
-+
+ 
 +
 +static int
 +android_media_AudioSystem_SetAudioCommandX(JNIEnv *env, jobject thiz, jint para1, jint para2)
@@ -148,14 +148,14 @@ index 49760021209..9eb073dc8f2 100644
 +}
 +
 +// zormax add end
- 
  // ----------------------------------------------------------------------------
  
-@@ -1775,6 +1905,13 @@ static const JNINativeMethod gMethods[] = {
+ static const JNINativeMethod gMethods[] = {
+@@ -1775,6 +1904,13 @@ static const JNINativeMethod gMethods[] = {
      {"getOutputLatency",    "(I)I",     (void *)android_media_AudioSystem_getOutputLatency},
      {"setLowRamDevice",     "(Z)I",     (void *)android_media_AudioSystem_setLowRamDevice},
      {"checkAudioFlinger",    "()I",     (void *)android_media_AudioSystem_checkAudioFlinger},
-+   // add zormax, for em mode setting
++    // add zormax, for em mode setting
 +    {"setEmParameter",   "([BI)I",     (void *)android_media_AudioSystem_SetEMParameter},
 +    {"getEmParameter",   "([BI)I",     (void *)android_media_AudioSystem_GetEMParameter},
 +    {"setAudioCommand",   "(II)I",     (void *)android_media_AudioSystem_SetAudioCommandX},
@@ -165,14 +165,43 @@ index 49760021209..9eb073dc8f2 100644
      {"listAudioPorts",      "(Ljava/util/ArrayList;[I)I",
                                                  (void *)android_media_AudioSystem_listAudioPorts},
      {"createAudioPatch",    "([Landroid/media/AudioPatch;[Landroid/media/AudioPortConfig;[Landroid/media/AudioPortConfig;)I",
+@@ -1947,4 +2083,4 @@ int register_android_media_AudioSystem(JNIEnv *env)
+     RegisterMethodsOrDie(env, kClassPathName, gMethods, NELEM(gMethods));
+     return RegisterMethodsOrDie(env, kEventHandlerClassPathName, gEventHandlerMethods,
+                                 NELEM(gEventHandlerMethods));
+-}
++}
+\ No newline at end of file
+diff --git a/core/jni/fd_utils-inl.h b/core/jni/fd_utils-inl.h
+index a68a60274ac..45875444e29 100644
+--- a/core/jni/fd_utils-inl.h
++++ b/core/jni/fd_utils-inl.h
+@@ -306,7 +306,7 @@ class FileDescriptorInfo {
+       return true;
+     }
+ 
+-    return false;
++    return true;
+   }
+ 
+   // TODO: Call android::base::Readlink instead of copying the code here.
+@@ -587,4 +587,4 @@ class FileDescriptorTable {
+   std::unordered_map<int, FileDescriptorInfo*> open_fd_map_;
+ 
+   DISALLOW_COPY_AND_ASSIGN(FileDescriptorTable);
+-};
++};
+\ No newline at end of file
 diff --git a/media/java/android/media/AudioSystem.java b/media/java/android/media/AudioSystem.java
-index e08c29041da..7af74f56599 100644
+index e08c29041da..dd3ac5adb4b 100644
 --- a/media/java/android/media/AudioSystem.java
 +++ b/media/java/android/media/AudioSystem.java
 @@ -823,5 +823,60 @@ public class AudioSystem
       * Keep in sync with core/jni/android_media_DeviceCallback.h.
       */
      final static int NATIVE_EVENT_ROUTING_CHANGE = 1000;
+-}
+ 
 +    /// zormax: Add for support EM
 +    /**
 +     * Set EM parameter.
@@ -206,7 +235,7 @@ index e08c29041da..7af74f56599 100644
 +     *
 +     * @param arg1 The first argument.
 +     * @return The status.
-+    */
++     */
 +    public static native int getAudioCommand(int arg1);
 +
 +    /**
@@ -228,8 +257,8 @@ index e08c29041da..7af74f56599 100644
 +     * @return The status.
 +     */
 +    public static native int getAudioData(int par1, int len, byte[] ptr);
- }
- 
++}
+\ No newline at end of file
 -- 
-2.25.0
+2.25.1
 

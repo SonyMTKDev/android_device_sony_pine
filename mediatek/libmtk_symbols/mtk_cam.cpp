@@ -13,10 +13,6 @@
 #include <hardware/power.h>
 #include <hardware/hardware.h>
 
-void _ZN7android14CameraMetadata14getTagFromNameEPKcPKNS_19VendorTagDescriptorEPj () {
-}
-void _ZNK7android8hardware7camera26params19OutputConfiguration14getSurfaceTypeEv () {
-}
 void _ZN14CustParameters7mPQCustE () {
 }
 void _ZNK7android14ICameraService22getInterfaceDescriptorEv () {
@@ -53,3 +49,4 @@ extern "C" void* _ZN7android21SurfaceComposerClient13createSurfaceERKNS_7String8
 		android::PixelFormat fmt, uint32_t flags) {
 	return _ZN7android21SurfaceComposerClient13createSurfaceERKNS_7String8EjjijPNS_14SurfaceControlEjj(s, w, h, fmt, flags, NULL, 0, 0);
 }
+

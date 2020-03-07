@@ -24,6 +24,7 @@ LOCAL_SRC_FILES := \
     mtk_gui.cpp \
     mtk_ui.cpp \
     mtk_omx.cpp \
+    misc.cpp \
     icu55.c \
     icu53.c \
     net_utils.c \

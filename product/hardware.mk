@@ -41,3 +41,8 @@ PRODUCT_PACKAGES += \
 # MTK Logging functions
 PRODUCT_PACKAGES += \
     liblog_mtk
+    
+# MTK App
+PRODUCT_PACKAGES += \
+    YGPS \
+    EngineerMode

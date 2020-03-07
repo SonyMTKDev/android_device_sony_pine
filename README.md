@@ -47,6 +47,7 @@ For 3.18 kernel
 - WIFI fixed
 - Battery status fixed
 - Bluetooth fixed
-- OMX fixed
+- OMX fixed(test)
 - Audio fixed
+- Camera fixed (exclude video recording)
 
