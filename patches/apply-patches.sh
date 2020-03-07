@@ -6,6 +6,7 @@ patch -p1 < ../device/sony/pine/patches/bionic/bionic_libc.patch
 cd ..
 cd frameworks/av
 patch -p1 < ../../device/sony/pine/patches/frameworks/av.patch
+patch -p1 < ../../device/sony/pine/patches/frameworks/frameworks-av_016-fix-cannot-locate-symbol.patch
 cd ../..
 cd frameworks/base
 patch -p1 < ../../device/sony/pine/patches/frameworks/base.patch
