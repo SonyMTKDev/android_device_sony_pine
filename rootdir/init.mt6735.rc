@@ -39,18 +39,20 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
 on init
- Shim libs
-    export LD_SHIM_LIBS \
-        "/system/vendor/lib/libui_ext.so|libmtk_symbols.so: \
-         /system/vendor/lib64/libui_ext.so|libmtk_symbols.so: \
-         /system/vendor/lib/libnetutils.so|libmtk_symbols.so: \
-         /system/vendor/lib64/libnetutils.so|libmtk_symbols.so: \
-	 /system/vendor/bin/program_binary_builder|libmtk_symbols.so: \
-	 /system/vendor/bin/vtservice|libmtk_symbols.so: \
-	 /system/vendor/lib/libMtkOmxVenc.so|libmtk_symbols.so: \
-	 /system/vendor/bin/mtk_agpsd|libmtk_symbols.so: \
-	 /system/vendor/lib/libcam_utils.so|libmtk_symbols.so: \
-	 /system/vendor/lib64/libcam_utils.so|libmtk_symbols.so"
+     export LD_PRELOAD "libmtk_symbols.so"
+
+#Shim libs
+#    export LD_SHIM_LIBS \
+#        "/system/vendor/lib/libui_ext.so|libmtk_symbols.so: \
+#         /system/vendor/lib64/libui_ext.so|libmtk_symbols.so: \
+#         /system/vendor/lib/libnetutils.so|libmtk_symbols.so: \
+#         /system/vendor/lib64/libnetutils.so|libmtk_symbols.so: \
+#	 /system/vendor/bin/program_binary_builder|libmtk_symbols.so: \
+#	 /system/vendor/bin/vtservice|libmtk_symbols.so: \
+#	 /system/vendor/lib/libMtkOmxVenc.so|libmtk_symbols.so: \
+#	 /system/vendor/bin/mtk_agpsd|libmtk_symbols.so: \
+#	 /system/vendor/lib/libcam_utils.so|libmtk_symbols.so: \
+#	 /system/vendor/lib64/libcam_utils.so|libmtk_symbols.so"
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard

@@ -1,6 +1,8 @@
 # RIL
 PRODUCT_PACKAGES += \
     gsm0710muxd \
+    muxreport \
+    terservice \
     libprotobuf-cpp-full
 
 PRODUCT_PROPERTY_OVERRIDES += \

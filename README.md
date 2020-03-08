@@ -60,5 +60,5 @@ For 3.18 kernel
   - PAUL (SODP)
   - jmpfbmx
   - rote66
-  - All developers who develop the mtk platform
+  - All developers who develop the mtk platform,thanks for much
   

@@ -16,7 +16,6 @@
 
 package org.cyanogenmod.hardware;
 
-import java.util.Scanner;
 import org.cyanogenmod.internal.util.FileUtils;
 
 public class DisplayColorCalibration {

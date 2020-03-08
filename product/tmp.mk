@@ -19,3 +19,8 @@
 #PRODUCT_PACKAGES += \
     libhwm \    
 
+# DRM
+#PRODUCT_PACKAGES += \
+    libdrm \
+    libmockdrmcryptoplugin \
+    libdrmclearkeyplugin \
