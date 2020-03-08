@@ -16,9 +16,20 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+
+    <!-- SAR Level for a device -->
+    <!-- Must be overlaid by device -->
+    <bool name="config_show_sar_enable" translatable="false">true</bool>
+    <!-- Maximum Specific Absorption Rate for head -->
+    <string name="sar_head_level" translatable="false">0.226</string>
+    <!-- Maximum Specific Absorption Rate for body -->
+    <string name="sar_body_level" translatable="false">0.987</string>
+
     <!-- Does the device allow updating the recovery. -->
     <bool name="config_enableRecoveryUpdater">false</bool>
     <bool name="config_gesture_settings_enabled">true</bool>
 
+    <!-- Display ro.product.name above Device model -->
+    <bool name="config_displayDeviceName">true</bool>
 </resources>
  

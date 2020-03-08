@@ -43,12 +43,12 @@ For 3.18 kernel
  * Auto brightness
  * Adjustable brightness
  * GPS
+ * Hotspot (test)
 
  ## Broken/Bugs
  * Video_Camera
  * RIL
  * OMX
- * Hotspot
 
 ## To be checked
  * Enforcing SELinux
