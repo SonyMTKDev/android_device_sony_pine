@@ -44,11 +44,12 @@ For 3.18 kernel
  * Adjustable brightness
  * GPS
  * Hotspot (test)
+ * Video Recorder
 
  ## Broken/Bugs
- * Video_Camera
+ * VideoRecorder need 3rd camera
  * RIL
- * OMX
+ * AVI hwcodec
 
 ## To be checked
  * Enforcing SELinux
@@ -62,3 +63,14 @@ For 3.18 kernel
   - rote66
   - All developers who develop the mtk platform,thanks for much
   
+## Credits (some files from their sources):
+  - divis1969
+  - seluce
+  - DeckerSU
+  - mohancm
+  - darklord4822
+  - MT8163
+  - SonyCustoms (tuba dev)
+  
+And about everyone else in the Mediatek community ;)  
+
