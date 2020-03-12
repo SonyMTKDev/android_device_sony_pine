@@ -671,8 +671,8 @@ on post-fs-data
 
     #//<2016/12/02-AlanChang, Fix Trustonic Test Suite test case failure.
     # mcDriverDaemon
-    mkdir /data/misc/mcRegistry 0775 system system
-    mkdir /data/misc/mcRegistry/TbStorage 0775 system system
+    #mkdir /data/misc/mcRegistry 0775 system system
+    #mkdir /data/misc/mcRegistry/TbStorage 0775 system system
     #//>2016/12/02-AlanChang.
 
     # AGPS
@@ -681,7 +681,7 @@ on post-fs-data
     chmod 0666 /dev/exm0
 
 	#Thermal
-	mkdir /data/vendor/.tp/ 0775 system system
+	mkdir /data/.tp/ 0775 system system 
 
 # End of adding by MTK drivers
 # -----------------------
