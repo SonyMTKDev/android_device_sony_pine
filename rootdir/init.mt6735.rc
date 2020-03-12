@@ -14,24 +14,24 @@ import init.trustonic.rc
 import init.microtrust.rc
 import init.common_svc.rc
 import init.c2k.rc
-import init.sony-trimarea.rc
-import init.sony-bootstrap.rc
-import init.sony-security.rc
-import init.sony-fota.rc
-import init.sony-enterprise.rc
-import init.sony-ramdump.rc
-import init.sony-idd.rc
-import init.sony-crashhandling.rc
+#import init.sony-trimarea.rc
+#import init.sony-bootstrap.rc
+#import init.sony-security.rc
+#import init.sony-fota.rc
+#import init.sony-enterprise.rc
+#import init.sony-ramdump.rc
+#import init.sony-idd.rc
+#import init.sony-crashhandling.rc
 import init.qns.rc
 
 # init.modem.rc must be the LAST rc file because vold.post_fs_data_done is set in it
 import init.modem.rc
 # *** DO NOT import the new rc file after this line ***
 #//<2015/11/20-ychuang, [S1][TA][M] Implement TA Backup / Restore.
-import init.arima-s1.rc
+#import init.arima-s1.rc
 #//<2015/11/20-ychuang
 
-import init.charge_loggingd.rc
+#import init.charge_loggingd.rc
 
 on early-init
     write /proc/bootprof "INIT:early-init"

@@ -11,7 +11,7 @@ import init.microtrust.rc
 import meta_init.connectivity.rc
 import meta_init.project.rc
 import meta_init.c2k.rc
-import init.sony-trimarea.rc
+#import init.sony-trimarea.rc
 #Make sure meta_init.modem.rc is the last rc file.
 import meta_init.modem.rc
 

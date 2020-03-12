@@ -477,6 +477,8 @@ on post-fs-data
     
     # taimport ready, use this as trigger for multi-cdf-symlinker
     setprop init.taimport.ready true
+    
+    # set nvram ready for los14.1 added by rote66
     setprop service.nvram_init Ready
 
 on boot
