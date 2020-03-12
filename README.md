@@ -45,6 +45,7 @@ For 3.18 kernel
  * GPS
  * Hotspot (test)
  * Video Recorder
+ * Poweroff Chager
 
  ## Broken/Bugs
  * VideoRecorder need 3rd camera
