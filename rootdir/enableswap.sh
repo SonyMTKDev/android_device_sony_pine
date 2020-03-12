@@ -5,6 +5,7 @@ echo 536870912 > /sys/block/zram0/disksize
 /system/bin/mkswap /dev/block/zram0
 /system/bin/swapon /dev/block/zram0
 
+#Added by rote66 for customized EMP kernel
 #set swappiness
 echo 100 > /proc/sys/vm/swappiness
 
@@ -14,7 +15,6 @@ echo 500 > /sys/kernel/mm/ksm/sleep_millisecs
 echo 1 > /sys/kernel/mm/ksm/run
 
 #Zswap
-#chmod 0644 /sys/module/zswap/parameters/enabled
 echo 24 > /sys/module/zswap/parameters/max_pool_percent
 echo Y > /sys/module/zswap/parameters/enabled
-
+#END
