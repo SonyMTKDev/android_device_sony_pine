@@ -23,3 +23,6 @@ cd ../..
 cd system/core
 patch -p1 < ../../device/sony/pine/patches/0001-for-pine.patch
 cd ../..
+cd frameworks/opt/telephony
+patch -p1 < ../../../device/sony/pine/patches/frameworks/telephony.patch
+cd ../../..
