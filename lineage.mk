@@ -26,8 +26,6 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 # Inherit device configuration
 $(call inherit-product, device/sony/pine/device_pine.mk)
 
-
-## Device identifier. This must come after all inclusions
 # Set those variables here to overwrite the inherited values.
 BOARD_VENDOR := SONY
 PRODUCT_DEVICE := pine
@@ -36,11 +34,6 @@ PRODUCT_BRAND := sony
 PRODUCT_MODEL := G3311
 PRODUCT_BOARD := pine
 PRODUCT_MANUFACTURER := sony
-
-PRODUCT_DEFAULT_LANGUAGE := zh
-PRODUCT_DEFAULT_REGION   := CN
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.timezone=Asia/Shanghai
 
 PRODUCT_GMS_CLIENTID_BASE := android-sonymobile
 
