@@ -49,12 +49,10 @@ For 3.18 kernel
 
  ## Broken/Bugs
  * VideoRecorder need 3rd camera
- * RIL
+ * RIL (insert sim will unknow baseband)
  * AVI hwcodec
+ * NFC
 
-## To be checked
- * Enforcing SELinux
- 
 ### Credits:
   - KJONES
   - BILUX
@@ -62,7 +60,7 @@ For 3.18 kernel
   - PAUL (SODP)
   - jmpfbmx
   - rote66
-  - All developers who develop the mtk platform,thanks for much
+
   
 ## Credits (some files from their sources):
   - divis1969
