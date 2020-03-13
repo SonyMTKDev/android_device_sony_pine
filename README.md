@@ -46,12 +46,12 @@ For 3.18 kernel
  * Hotspot (test)
  * Video Recorder
  * Poweroff Chager
+ * NFC (need test)
 
  ## Broken/Bugs
  * VideoRecorder need 3rd camera
  * RIL (insert sim will unknow baseband)
- * AVI hwcodec
- * NFC
+ * Decodec
 
 ### Credits:
   - KJONES
