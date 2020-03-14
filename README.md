@@ -20,39 +20,6 @@ Camera  | 13 MP, f/2.2, autofocus
 
 ![Sony XPERIA L1](https://fdn2.gsmarena.com/vv/pics/sony/sony-xperia-l1-0.jpg)
 
-Device for G3311
-
-For 3.18 kernel
-
-===========================
-
-# Build Information
-
-### Current Working
- * Hardware acceleration
- * Wifi
- * Bluetooth
- * Vibration
- * Audio
- * Flashlight (statusbar and camera)
- * Micro SD support
- * MTP and Mass Storage modes
- * RAM and ROM
- * Rotation
- * Camera rear/front (photographs only)
- * Auto brightness
- * Adjustable brightness
- * GPS
- * Hotspot (test)
- * Video Recorder
- * Poweroff Chager
- * NFC (need test)
-
- ## Broken/Bugs
- * VideoRecorder need 3rd camera
- * RIL (insert sim will unknow baseband)
- * Decodec
-
 ### Credits:
   - KJONES
   - BILUX
@@ -72,4 +39,3 @@ For 3.18 kernel
   - SonyCustoms (tuba dev)
   
 And about everyone else in the Mediatek community ;)  
-
