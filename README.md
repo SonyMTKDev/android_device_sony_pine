@@ -60,7 +60,7 @@ For 3.18 kernel
   - PAUL (SODP)
   - jmpfbmx
   - rote66
-
+  - Myst33d
   
 ## Credits (some files from their sources):
   - divis1969
