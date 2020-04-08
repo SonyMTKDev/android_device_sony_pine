@@ -7,6 +7,9 @@ VENDOR_PATH := vendor/sony/pine
 # System Prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := Sony_L1,pine
+
 # Audio
 BOARD_USES_MTK_AUDIO := true
 USE_XML_AUDIO_POLICY_CONF := 1
