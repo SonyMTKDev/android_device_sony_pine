@@ -114,7 +114,7 @@ BOARD_CHARGER_SHOW_PERCENTAGE := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(shell pwd)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
-TARGET_KERNEL_CONFIG := pine_defconfig
+TARGET_KERNEL_CONFIG := lineage_pine_defconfig
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/sony/pine
 
