@@ -297,7 +297,12 @@ PRODUCT_PACKAGES += \
     gsm0710muxd \
     muxreport \
     terservice \
-    libprotobuf-cpp-full
+    libprotobuf-cpp-full \
+    libccci_util \
+    librilmtk \
+    librilmtkmd2 \
+    mtkrild \
+    rilproxy
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
