@@ -28,6 +28,7 @@ Camera  | 13 MP, f/2.2, autofocus
   - jmpfbmx
   - rote66
   - Myst33d
+  - Maanush
   
 ## Credits (some files from their sources):
   - divis1969
