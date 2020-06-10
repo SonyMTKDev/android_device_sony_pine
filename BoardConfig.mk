@@ -7,7 +7,7 @@ VENDOR_PATH := vendor/sony/pine
 # System Prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
-# Assert
+# OTA Assert
 TARGET_OTA_ASSERT_DEVICE := Sony_L1,pine
 
 # Audio
@@ -22,15 +22,10 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_MTK := true
 BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
-# BOARD_BLUETOOTH_BDROID_HCILP_INCLUDED := 0
 
 # Boot Animation
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
-#DEVICE_RESOLUTION := 720x1280
-#TARGET_BOOT_ANIMATION_RES := 720
-#TARGET_BOOTANIMATION_PRELOAD := true
-#TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 
 # Camera
 USE_CAMERA_STUB := true
@@ -49,13 +44,6 @@ MALLOC_SVELTE := true
 ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
 
-# Vold
-#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
-
-# Charger
-#BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
-#BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/BOOT/BOOT/boot/boot_mode
-
 # Graphics
 USE_OPENGL_RENDERER := true
 PRESENT_TIME_OFFSET_FROM_VSYNC_NS := 0
@@ -63,12 +51,12 @@ BOARD_EGL_CFG := $(DEVICE_PATH)/egl.cfg
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+
+# MediaTek Graphics
 MTK_HWC_SUPPORT := yes
 MTK_HWC_VERSION := 1.5.0
 MTK_GPU_VERSION := mali midgard r12p1
 OVERRIDE_RS_DRIVER := libRSDriver_mtk.so
-#TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := false
-#TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := false
 
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE := 41943040
@@ -82,24 +70,20 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 # Partitions types
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-#BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # GPS
 BOARD_GPS_LIBRARIES := true
-#BOARD_CONNECTIVITY_MODULE := MT6737
 BOARD_MEDIATEK_USES_GPS := true
 BOARD_CONNECTIVITY_MODULE := conn_soc 
-#BOARD_USES_AOSP_GPS_HAL := true
 
-# CMHW
+# Cyanogenmod Hardware
 BOARD_USES_CYANOGEN_HARDWARE := true
 BOARD_HARDWARE_CLASS += $(COMMON_PATH)/cmhw
 
-# Mediatek support
+# Mediatek Flags
 BOARD_USES_MTK_HARDWARE := true
 BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true
-#BOARD_GLOBAL_CFLAGS += -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
 
 # Backlights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -107,10 +91,11 @@ TARGET_PROVIDES_LIBLIGHT := true
 # Shims
 TARGET_LDPRELOAD += libmtk_symbols.so
 
-#sensor test
+# Sensor
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
+# Charger
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # Kernel
@@ -121,17 +106,18 @@ TARGET_KERNEL_CONFIG := lineage_pine_defconfig
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/sony/pine
 
+# Kernel Args
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x40078000
 BOARD_RAMDISK_OFFSET := 0x03f88000
-
-BOARD_NO_SECURE_DISCARD := true
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x03f88000 --second_offset 0x00000000 --tags_offset 0x0df88000 --base 0x40078000
 
-#Media
+# Board
+BOARD_NO_SECURE_DISCARD := true
+
+# Media
 MTK_MEDIA_PROFILES := true
 BOARD_USES_MTK_MEDIA_PROFILES := true
-#TARGET_OMX_LEGACY_RESCALING := true
 
 # Disable API check
 WITHOUT_CHECK_API := true
@@ -184,12 +170,9 @@ ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_VFP := true
 
-# Charger
-BOARD_CHARGER_SHOW_PERCENTAGE := true
-
 # SELinux
 ifeq ($(SELINUX_PERMISSIVE),true)
-BOARD_KERNEL_CMDLINE +=  androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 endif
 BOARD_SEPOLICY_DIRS := $(DEVICE_PATH)/sepolicy
 BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
@@ -214,10 +197,6 @@ WIFI_DRIVER_STATE_CTRL_PARAM := /dev/wmtWifi
 WIFI_DRIVER_STATE_ON := 1
 WIFI_DRIVER_STATE_OFF := 0
 
-#Linker
-LINKER_FORCED_SHIM_LIBS += /system/lib/libcamera_client.so|libmtk_symbols.so:/system/lib64/libcamera_client.so|libmtk_symbols.so:/system/vendor/bin/program_binary_builder|libmtk_symbols.so
-#LINKER_FORCED_SHIM_LIBS += /system/vendor/lib/mtk-ril.so|libmtk_symbols.so:/system/vendor/lib64/mtk-ril.so|libmtk_symbols.so
-
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_NO_REAL_SDCARD := true
@@ -235,7 +214,7 @@ RECOVERY_SDCARD_ON_DATA := true
 TW_INCLUDE_FUSE_EXFAT := true
 # NTFS Support
 TW_INCLUDE_FUSE_NTFS := true
-#F2FS
+# F2FS Support
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 TW_INCLUDE_FUSE_F2FS := true
 
@@ -260,7 +239,6 @@ TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
-#Crypto
+# Crypto
 TW_INCLUDE_L_CRYPTO := true
-#TARGET_HW_DISK_ENCRYPTION := true
 TW_INCLUDE_CRYPTO := true

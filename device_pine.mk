@@ -14,11 +14,13 @@
 # limitations under the License.
 #
 
+DEVICE_PATH:= device/sony/pine
+
+# This device it's a phone
 PRODUCT_CHARACTERISTICS := phone
 
+# Build Date
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-
-DEVICE_PATH:= device/sony/pine
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal large xhdpi
@@ -49,6 +51,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Audio
 PRODUCT_PACKAGES += \
+    audio.primary.default \
     audio.a2dp.default \
     audio.r_submix.default \
     audio_policy.default \
@@ -60,25 +63,22 @@ PRODUCT_PACKAGES += \
     libtinymix \
     libtinyxml 
 
-# Configurations
+# Audio Configurations
 PRODUCT_COPY_FILES += \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/usb_audio_policy_configuration.xml \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:system/etc/audio_policy_volumes.xml \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/default_volume_tables.xml:system/etc/default_volume_tables.xml \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/etc/r_submix_audio_policy_configuration.xml 
 
-
-#use stock to avoid crash
-#$(TOPDIR)frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/etc/a2dp_audio_policy_configuration.xml \
-#$(TOPDIR)frameworks/av/services/audiopolicy/config/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml
-
 # Bluetooth
 PRODUCT_PACKAGES += \
 	bluetooth.default
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf
 
-# Camera
+# BT Config
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/bt_did.conf:system/etc/bluetooth/bt_did.conf
+
+# Camera Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -128,6 +128,7 @@ PRODUCT_PACKAGES += \
     gps.mt6737t \
     libcurl
 
+# GPS XML
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     $(DEVICE_PATH)/configs/agps_profiles_conf2.xml:system/vendor/etc/agps_profiles_conf2.xml
@@ -159,22 +160,32 @@ PRODUCT_COPY_FILES += \
 # Shim symbols
 PRODUCT_PACKAGES += \
     libmtk_symbols \
-    libxlog \
-    libperfservicenative \
-    libcurl 
+    libxlog
 
-#vendor_libs
+# PerfService Native
 PRODUCT_PACKAGES += \
-    lights.mt6737t \
-    local_time.default \
-    audio.primary.default \
-    vibrator.default \
-    gralloc.default \
+    libperfservicenative
+
+
+# Lights
+PRODUCT_PACKAGES += \
+    lights.mt6737t
+
+# Local Time
+PRODUCT_PACKAGES += \
+    local_time.default
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    vibrator.default
+
+# Gralloc
+PRODUCT_PACKAGES += \
+    gralloc.default
+
+# Torch
+PRODUCT_PACKAGES += \
     Torch 
-
-# MTK Logging functions
-PRODUCT_PACKAGES += \
-    liblog_mtk
     
 # MTK App
 PRODUCT_PACKAGES += \
@@ -190,7 +201,7 @@ PRODUCT_SYSTEM_SERVER_JARS += com.cyanogenmod.keyhandler
 # Never dexopt the keyhandler
 $(call add-product-dex-preopt-module-config,com.cyanogenmod.keyhandler,disable)
 
-# CODECS
+# Media Codecs
 PRODUCT_COPY_FILES += \
   $(DEVICE_PATH)/configs/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml \
   $(DEVICE_PATH)/configs/media_codecs_mediatek_video.xml:system/etc/media_codecs_mediatek_video.xml \
@@ -199,9 +210,8 @@ PRODUCT_COPY_FILES += \
   $(DEVICE_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml 
-  #frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
-#su
+# Root
 PRODUCT_PACKAGES += \
 	su 
 
@@ -209,19 +219,19 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libnl_2
 
-# Permissions
+# NFC Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
 
-# Packages
+# NFC Packages
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     NfcNci \
     Tag
 
-# Configurations
+# NFC Configurations
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/nfc/nfcse.cfg:system/etc/nfcse.cfg \
     $(DEVICE_PATH)/configs/nfc/nfc.cfg:system/etc/nfc.cfg 
@@ -231,12 +241,12 @@ PRODUCT_PACKAGES += \
     charger_res_images \
     charger
 
-    # Power
+# Power
 PRODUCT_PACKAGES += \
    power.mt6737t \
    power.default
 
-# Default.prop
+# Override Default Properties
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1 \
     ro.oem_unlock_supported=1 \
@@ -245,17 +255,17 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     sys.usb.ffs.aio_compat=1 \
     ro.mount.fs=EXT4 \
     ro.mtk_key_manager_kb_path=1 
-    
+
+# ADB Debugging (if not user)
 ifneq ($(TARGET_BUILD_VARIANT), user)
-# ADB Debugging
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.adb.secure=0 \
     ro.debuggable=1 \
     ro.secure=0
 endif
 
-#If you need complie twrp,please # Ramdisk and enable this
-#PRODUCT_COPY_FILES += \
+ifeq ($(TARGET_BUILD_TWRP), true)
+PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/rootdir/factory_init.project.rc:root/factory_init.project.rc \
     $(DEVICE_PATH)/rootdir/factory_init.rc:root/factory_init.rc \
     $(DEVICE_PATH)/rootdir/fstab.mt6735:root/fstab.mt6735 \
@@ -266,13 +276,13 @@ endif
     $(DEVICE_PATH)/rootdir/ueventd.mt6735.rc:root/ueventd.mt6735.rc \
     $(DEVICE_PATH)/rootdir/init.mt6735.usb.rc:root/init.mt6735.usb.rc \
     $(DEVICE_PATH)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
-#    $(DEVICE_PATH)/rootdir/init.recovery.mt6735.rc:root/init.recovery.mt6735.rc
+endif
 
-#Ramdisk
+# Ramdisk
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/rootdir,root)
 
-#RC
+# Target Provides its own INIT script
 TARGET_PROVIDES_INIT_RC := true
 
 PRODUCT_COPY_FILES += \
@@ -281,7 +291,7 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/etc/init/cameraserver.rc:system/etc/init/cameraserver.rc \
     $(DEVICE_PATH)/etc/init/rild.rc:system/etc/init/rild.rc 
 
-#Rc parts add for pine
+# Custom Init Scripts for Pine
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/etc/init/atrace.rc:system/etc/init/atrace.rc \
     $(DEVICE_PATH)/etc/init/bootanim.rc:system/etc/init/bootanim.rc \
@@ -304,6 +314,7 @@ PRODUCT_PACKAGES += \
     mtkrild \
     rilproxy
 
+# Telephony Overrides
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     ro.telephony.ril_class=MT6735 \
@@ -311,10 +322,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.mobiledata=false \
     ro.kernel.android.checkjni=0
 
+# SPN Configuration File
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
 
-# Sensors
+# Sensors Configs
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
@@ -332,44 +344,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
 
-# GUI UI MTK props
-#PRODUCT_PACKAGES += \
-    librrc \
-    libion_mtk \
-    libion 
-
-# NVRAM
-#PRODUCT_PACKAGES += \
-    libnvram \
-    libcustom_nvram
-
-# Thermal manager
-#PRODUCT_PACKAGES += \
-    thermal_manager \
-    libmtcloader \
-    libperfservicenative
-    
-# sensors
-#PRODUCT_PACKAGES += \
-    libhwm   
-
-# DRM
-#PRODUCT_PACKAGES += \
-    libdrm \
-    libmockdrmcryptoplugin \
-    libdrmclearkeyplugin
-
 # USB
 PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory
 
-# WiFi
+# WiFi Config
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml 
 
-#wifi
+# WiFi Packages
 PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
@@ -378,6 +363,7 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf 
 
+# WiFi Configs
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/hostapd/hostapd_default.conf:system/etc/wifi/hostapd_default.conf \
     $(DEVICE_PATH)/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
