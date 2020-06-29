@@ -7,9 +7,6 @@ VENDOR_PATH := vendor/sony/pine
 # System Prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
-# OTA Assert
-TARGET_OTA_ASSERT_DEVICE := Sony_L1,pine
-
 # Audio
 BOARD_USES_MTK_AUDIO := true
 USE_XML_AUDIO_POLICY_CONF := 1
@@ -32,7 +29,7 @@ USE_CAMERA_STUB := true
 
 # OTA
 BLOCK_BASED_OTA := true
-TARGET_OTA_ASSERT_DEVICE := pine
+TARGET_OTA_ASSERT_DEVICE := pine,Sony_L1
 
 # Enable Minikin text layout engine (will be the default soon)
 USE_MINIKIN := true
