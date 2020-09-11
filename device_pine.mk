@@ -96,6 +96,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libion 
 
+# DOZE
+PRODUCT_PACKAGES += \
+    SonyDoze
+
 # FMRadio
 MTK_FM_SUPPORT := true
 
