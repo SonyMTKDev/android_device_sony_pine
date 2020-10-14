@@ -59,7 +59,7 @@
 # group, then they'll only see log entries for their UID.
 /dev/log/ksystem          0600   root       log
 
-/dev/ccci*                0660   radio      radio
+/dev/ccci*                0666   radio      radio
 /dev/ttyC*                0660   radio      radio
 /sys/kernel/ccci          modem_info   0644   radio       radio
 /sys/kernel/ccci          md1_postfix  0644   radio       radio
