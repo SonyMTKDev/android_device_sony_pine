@@ -92,6 +92,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Snap
 
+# Busybox
+PRODUCT_PACKAGES += \
+    busybox
+
 # Display
 PRODUCT_PACKAGES += \
     libion 
