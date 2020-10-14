@@ -85,9 +85,6 @@ MTK_HARDWARE := true
 # Backlights
 TARGET_PROVIDES_LIBLIGHT := true
 
-# Shims
-TARGET_LDPRELOAD += libmtk_symbols.so
-
 # Sensor
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 TARGET_NO_SENSOR_PERMISSION_CHECK := true

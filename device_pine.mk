@@ -163,7 +163,6 @@ PRODUCT_COPY_FILES += \
 
 # Shim symbols
 PRODUCT_PACKAGES += \
-    libmtk_symbols \
     libxlog
 
 # PerfService Native
