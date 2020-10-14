@@ -1,5 +1,21 @@
 LOCAL_PATH := $(call my-dir)
 
+# GPS Shim
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+	gps/icu_shim.cpp
+
+LOCAL_SHARED_LIBRARIES := \
+	liblog \
+	libicuuc \
+	libssl \
+	libcrypto
+
+LOCAL_MODULE := libshim_gps
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
+
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \

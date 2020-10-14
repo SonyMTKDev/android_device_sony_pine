@@ -349,6 +349,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Shim symbols
 PRODUCT_PACKAGES += \
+    libshim_gps \
     libshim_vt \
     libshim_program_binary
 
