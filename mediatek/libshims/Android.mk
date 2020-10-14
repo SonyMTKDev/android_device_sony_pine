@@ -16,6 +16,16 @@ LOCAL_MODULE := libshim_gps
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
+# Camera Shim
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+	camera/sony_camera.cpp
+
+LOCAL_MODULE := libshim_camera
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
+
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
