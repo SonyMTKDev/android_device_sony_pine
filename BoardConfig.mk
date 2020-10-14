@@ -176,6 +176,8 @@ LINKER_FORCED_SHIM_LIBS := \
     /system/vendor/bin/mtk_agpsd|libshim_gps.so \
     /system/vendor/lib/libcam_utils.so|libshim_camera.so \
     /system/vendor/lib64/libcam_utils.so|libshim_camera.so \
+    /system/vendor/lib/libcam_utils.so|libshim_gui.so \
+    /system/vendor/lib64/libcam_utils.so|libshim_gui.so \
     /system/vendor/bin/vtservice|libshim_mal.so \
     /system/vendor/bin/vtservice|libshim_asc.so \
     /system/lib/liblog.so|libshim_xlog.so \
@@ -183,7 +185,11 @@ LINKER_FORCED_SHIM_LIBS := \
     /system/vendor/lib/libvtmal.so|libshim_vt.so \
     /system/vendor/lib64/libvtmal.so|libshim_vt.so \
     /system/vendor/lib/libprogrambinary.so|libshim_program_binary.so \
-    /system/vendor/lib64/libprogrambinary.so|libshim_program_binary.so
+    /system/vendor/lib64/libprogrambinary.so|libshim_program_binary.so \
+    /system/vendor/lib/libui_ext.so|libshim_gui.so \
+    /system/vendor/lib64/libui_ext.so|libshim_gui.so \
+    /system/vendor/lib/libgui_ext.so|libshim_gui.so
+    /system/vendor/lib64/libgui_ext.so|libshim_gui.so
 
 # RIL
 BOARD_PROVIDES_RILD := true
