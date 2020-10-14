@@ -350,7 +350,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Shim symbols
 PRODUCT_PACKAGES += \
-    libshim_vt
+    libshim_vt \
+    libshim_program_binary
 
 # USB
 PRODUCT_PACKAGES += \

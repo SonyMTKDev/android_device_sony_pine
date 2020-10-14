@@ -177,7 +177,9 @@ BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
 # Shim Symbols
 LINKER_FORCED_SHIM_LIBS := \
     /system/vendor/lib/libvtmal.so|libshim_vt.so \
-    /system/vendor/lib64/libvtmal.so|libshim_vt.so
+    /system/vendor/lib64/libvtmal.so|libshim_vt.so \
+    /system/vendor/lib/libprogrambinary.so|libshim_program_binary.so \
+    /system/vendor/lib64/libprogrambinary.so|libshim_program_binary.so
 
 # RIL
 BOARD_PROVIDES_RILD := true
