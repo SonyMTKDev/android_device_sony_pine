@@ -352,7 +352,8 @@ PRODUCT_PACKAGES += \
     libshim_gps \
     libshim_camera \
     libshim_vt \
-    libshim_program_binary
+    libshim_program_binary \
+    libshim_xlog
 
 # USB
 PRODUCT_PACKAGES += \

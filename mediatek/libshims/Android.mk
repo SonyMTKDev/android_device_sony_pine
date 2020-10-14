@@ -55,3 +55,15 @@ LOCAL_MODULE := libshim_vt
 LOCAL_CFLAGS := -O3 -Wno-unused-variable -Wno-unused-parameter
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
+
+# XLOG Shim
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := misc/xlog_shim.cpp
+
+LOCAL_SHARED_LIBRARIES := liblog
+
+LOCAL_MODULE := libshim_xlog
+
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
