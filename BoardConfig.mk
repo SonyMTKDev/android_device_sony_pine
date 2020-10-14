@@ -174,6 +174,11 @@ endif
 BOARD_SEPOLICY_DIRS := $(DEVICE_PATH)/sepolicy
 BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
 
+# Shim Symbols
+LINKER_FORCED_SHIM_LIBS := \
+    /system/vendor/lib/libvtmal.so|libshim_vt.so \
+    /system/vendor/lib64/libvtmal.so|libshim_vt.so
+
 # RIL
 BOARD_PROVIDES_RILD := true
 BOARD_RIL_CLASS := ../../../$(DEVICE_PATH)/ril

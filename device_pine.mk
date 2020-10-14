@@ -348,6 +348,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
 
+# Shim symbols
+PRODUCT_PACKAGES += \
+    libshim_vt
+
 # USB
 PRODUCT_PACKAGES += \
     librs_jni \
