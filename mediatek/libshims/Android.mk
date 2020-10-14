@@ -68,7 +68,6 @@ LOCAL_MODULE := libshim_xlog
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
-
 # MAL Shim (vt)
 include $(CLEAR_VARS)
 
@@ -76,5 +75,17 @@ LOCAL_SRC_FILES := \
 	misc/vtservice_shim.cpp
 
 LOCAL_MODULE := libshim_mal
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
+
+# ASC Shim (vt)
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := misc/asc_shim.cpp
+
+LOCAL_SHARED_LIBRARIES := libsurfaceflinger
+
+LOCAL_MODULE := libshim_asc
+
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
