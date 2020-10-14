@@ -28,7 +28,6 @@ LOCAL_SRC_FILES := \
     icu55.c \
     icu53.c \
     net_utils.c \
-    program_binary_builder.cpp \
     ssl.c \
     mtk_gps.cpp \
     mtk_bionic.cpp
