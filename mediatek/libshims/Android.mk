@@ -110,3 +110,13 @@ LOCAL_C_INCLUDES += system/core/include/ frameworks/av/include/ hardware/libhard
 LOCAL_MODULE := libshim_gui
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
+
+# Audio Shim
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := audio/audio_shim.cpp
+
+LOCAL_MODULE := libshim_audio
+
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
