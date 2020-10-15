@@ -29,7 +29,7 @@
 <spnOverride numeric="21201"  spn="vala"             shortname="vala" />
 <spnOverride numeric="21210"  spn="Monaco"           shortname="Monaco" />
 <!-- **** Andorra **** -->
-<spnOverride numeric="21303"  spn="MOBILAND"         shortname="MOBILAND" />
+<spnOverride numeric="21303"  spn="AndorraTelecom"         shortname="AndorraTelecom" />
 <!-- **** Spain **** -->
 <spnOverride numeric="21401"  spn="vodafone ES"      shortname="vodafone ES" />
 <spnOverride numeric="21402"  spn="Movistar"         shortname="Movistar" />
@@ -54,6 +54,8 @@
 <spnOverride numeric="22001"  spn="Telenor SRB"      shortname="Telenor SRB" />
 <spnOverride numeric="22003"  spn="mt:s"             shortname="mt:s" />
 <spnOverride numeric="22005"  spn="Vip SRB"          shortname="Vip SRB" />
+<!-- **** Kosovo **** -->
+<spnOverride numeric="22102"  spn="IPKO"             shortname="IPKO" />
 <!-- **** Italy **** -->
 <spnOverride numeric="22201"  spn="I TIM"            shortname="I TIM" />
 <spnOverride numeric="22250"  spn="ILIAD"            shortname="ILIAD" />
@@ -652,15 +654,19 @@
 <spnOverride numeric="37001"  spn="Orange"           shortname="Orange" />
 <spnOverride numeric="37002"  spn="CLARO DOM"        shortname="CLARO DOM" />
 <spnOverride numeric="37004"  spn="VIVA DO"          shortname="VIVA DO" />
+<spnOverride numeric="37005"  spn="Wind"          shortname="Wind" />
 <spnOverride numeric="370010" spn="Orange"           shortname="Orange" />
 <spnOverride numeric="370020" spn="CLARO DOM"        shortname="CLARO DOM" />
 <spnOverride numeric="370040" spn="VIVA DO"          shortname="VIVA DO" />
+<spnOverride numeric="370050" spn="Wind"         shortname="Wind" />
 <!-- **** Haiti **** -->
 <spnOverride numeric="37201"  spn="COMCEL"           shortname="COMCEL" />
 <spnOverride numeric="37203"  spn="Natcom"           shortname="Natcom" />
 <spnOverride numeric="372010" spn="COMCEL"           shortname="COMCEL" />
 <!-- **** Trinidad and Tobago **** -->
 <spnOverride numeric="37412"  spn="TSTT"             shortname="TSTT" />
+<spnOverride numeric="37413"  spn="Digicel"          shortname="Digicel" />
+<spnOverride numeric="374130" spn="Digicel"          shortname="Digicel" />
 <!-- **** Turks and Caicos islands **** -->
 <spnOverride numeric="37635"  spn="FLOW"             shortname="FLOW" />
 <spnOverride numeric="376350" spn="FLOW"             shortname="FLOW" />
@@ -1005,6 +1011,7 @@
 <spnOverride numeric="45005"  spn="SKTelecom"        shortname="SKTelecom" />
 <spnOverride numeric="45006"  spn="KOR LG Uplus"     shortname="KOR LG Uplus" />
 <spnOverride numeric="45008"  spn="KT"               shortname="KT" />
+<spnOverride numeric="45010"  spn="KOR LG Uplus"     shortname="KOR LG Uplus" />
 <!-- **** Vietnam **** -->
 <spnOverride numeric="45201"  spn="VN Mobifone"      shortname="VN Mobifone" />
 <spnOverride numeric="45202"  spn="VN VINAPHONE"     shortname="VN VINAPHONE" />
@@ -1122,9 +1129,10 @@
 <spnOverride numeric="52003"  spn="AIS"              shortname="AIS" />
 <spnOverride numeric="52004"  spn="TRUE-H"           shortname="TRUE-H" />
 <spnOverride numeric="52005"  spn="dtac TriNet"      shortname="dtac TriNet" />
-<spnOverride numeric="52015"  spn="TOT3G"            shortname="TOT3G" />
+<spnOverride numeric="52015"  spn="TOT Mobile"            shortname="TOT Mobile" />
 <spnOverride numeric="52018"  spn="TH-DTAC"          shortname="TH-DTAC" />
 <spnOverride numeric="52023"  spn="TH GSM 1800"      shortname="TH GSM 1800" />
+<spnOverride numeric="52047"  spn="TOT Mobile"       shortname="TOT Mobile" />
 <spnOverride numeric="52099"  spn="TRUE-H"           shortname="TRUE-H" />
 <!-- **** Singapore **** -->
 <spnOverride numeric="52501"  spn="Singtel"          shortname="Singtel" />
@@ -1149,7 +1157,7 @@
 <spnOverride numeric="53901"  spn="U-CALL"           shortname="U-CALL" />
 <spnOverride numeric="53988"  spn="Digicel Tonga"    shortname="Digicel Tonga" />
 <!-- **** Solomon Islands **** -->
-<spnOverride numeric="54001"  spn="SI BREEZE"        shortname="SI BREEZE" />
+<spnOverride numeric="54001"  spn="Our Telekom"        shortname="Our Telekom" />
 <spnOverride numeric="54002"  spn="bmobile"          shortname="bmobile" />
 <!-- **** Vanuatu **** -->
 <spnOverride numeric="54101"  spn="VUT SMILE"        shortname="VUT SMILE" />
@@ -1223,8 +1231,8 @@
 <!-- **** Guinea **** -->
 <spnOverride numeric="61101"  spn="Orange GN"        shortname="Orange GN" />
 <spnOverride numeric="61102"  spn="GN LAGUI"         shortname="GN LAGUI" />
-<spnOverride numeric="61104"  spn="GN Areeba"        shortname="GN Areeba" />
-<spnOverride numeric="61105"  spn="Cellcom"          shortname="Cellcom" />
+<spnOverride numeric="61104"  spn="GNMTN"        shortname="GNMTN" />
+<spnOverride numeric="61105"  spn="Cellcom"       shortname="Cellcom" />
 <!-- **** Ivory Coast **** -->
 <spnOverride numeric="61202"  spn="MOOV CI"          shortname="MOOV CI"/>
 <spnOverride numeric="61203"  spn="Orange"           shortname="Orange" />
@@ -1314,7 +1322,7 @@
 <spnOverride numeric="63104"  spn="MOVICEL"          shortname="MOVICEL" />
 <!-- **** Guinea-Bissau **** -->
 <spnOverride numeric="63202"  spn="MTN"              shortname="MTN" />
-<spnOverride numeric="63203"  spn="Orange BS"        shortname="Orange BS" />
+<spnOverride numeric="63203"  spn="Orange GB"        shortname="Orange GB" />
 <!-- **** Seychelles **** -->
 <spnOverride numeric="63301"  spn="C&amp;W SEY"      shortname="C&amp;W SEY" />
 <spnOverride numeric="63310"  spn="Airtel"           shortname="Airtel" />
