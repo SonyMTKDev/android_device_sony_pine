@@ -23,6 +23,7 @@ mtk.vdec.waitkeyframeforplay=1
 ro.media.maxmem=500000000
 
 # RIL
+ro.build.imeisv=15
 rild.libpath=mtk-ril.so
 rild.libargs=-d /dev/ttyC0
 persist.radio.multisim.config=dsds
