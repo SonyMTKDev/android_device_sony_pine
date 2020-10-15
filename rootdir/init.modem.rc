@@ -9,7 +9,7 @@ on post-fs-data
     write /proc/bootprof "post-fs-data: on modem start"
 
     # Modem related device nodes
-    mkdir /data/nvram/md  0666 root system
+    mkdir /data/nvram/md  0770 root system
 
 #  Build-in Modified - S
 #    insmod /vendor/lib/modules/ccci_plat.ko
