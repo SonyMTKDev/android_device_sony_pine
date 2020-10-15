@@ -230,3 +230,7 @@ ro.adb.secure=0
 persist.service.adb.enable=1
 persist.service.debuggable=1
 ro.nfc.port=I2C
+
+# Import OEM properties
+import /oem/system-properties/cust.prop
+import /oem/system-properties/config.prop
