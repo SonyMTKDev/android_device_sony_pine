@@ -72,8 +72,6 @@ ro.mtk_tdd_data_only_support=1
 persist.radio.mtk_dsbp_support=1
 persist.mtk_dynamic_ims_switch=0
 ro.mtk_modem_monitor_support=1
-ril.specific.sm_cause=0
-ril.flightmode.poweroffMD=1
 
 # Wifi
 # MTK, Infinity, 20090720 {
@@ -230,7 +228,6 @@ ro.secure=0
 ro.adb.secure=0
 persist.service.adb.enable=1
 persist.service.debuggable=1
-ro.nfc.port=I2C
 
 # Import OEM properties
 import /oem/system-properties/cust.prop
