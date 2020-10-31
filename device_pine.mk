@@ -319,7 +319,8 @@ PRODUCT_PACKAGES += \
     librilmtk \
     librilmtkmd2 \
     mtkrild \
-    rilproxy
+    rilproxy \
+    librilutils
 
 # Telephony Overrides
 PRODUCT_PROPERTY_OVERRIDES += \
