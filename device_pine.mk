@@ -322,6 +322,10 @@ PRODUCT_PACKAGES += \
     rilproxy \
     librilutils
 
+# Sim Management Toolkit
+PRODUCT_PACKAGES += \
+    Stk
+
 # Telephony Overrides
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
