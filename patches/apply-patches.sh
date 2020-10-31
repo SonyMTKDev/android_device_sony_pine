@@ -26,4 +26,5 @@ patch -p1 < ../../device/sony/pine/patches/system/0001-for-pine.patch
 cd ../..
 cd frameworks/opt/telephony
 patch -p1 < ../../../device/sony/pine/patches/frameworks/telephony.patch
+patch -p1 < ../../../device/sony/pine/patches/frameworks/Import-fakeiccid-implementation.patch
 cd ../../..
