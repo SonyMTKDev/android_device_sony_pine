@@ -335,8 +335,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0
 
 # SPN Configuration File
+# Get the long list of APNs
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
+    $(DEVICE_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml \
+    device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
 # Sensors Configs
 PRODUCT_COPY_FILES += \
