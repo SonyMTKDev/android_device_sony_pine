@@ -1,8 +1,14 @@
 [
   {
-    "target_path": "vendor/sony/pine",
-    "repository":  "PineDevelopment/vendor_sony_pine",
+    "target_path": "kernel/sony/pine",
+    "repository":  "PineDevelopment/android_kernel_sony_pine",
     "remote":      "github",
-    "revision":    "los14.1
+    "revision":    "cm-14.1"
+  },
+  {
+    "target_path": "vendor/sony/pine",
+    "repository":  "PineDevelopment/android_vendor_sony_pine",
+    "remote":      "github",
+    "revision":    "cm-14.1"
   }
 ]
