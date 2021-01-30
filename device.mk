@@ -123,6 +123,10 @@ PRODUCT_PACKAGES += \
     libgui_ext \
     libui_ext
 
+# Charger Mode
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
