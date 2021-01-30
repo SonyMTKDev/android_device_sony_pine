@@ -31,6 +31,7 @@ PRODUCT_PACKAGES += \
     libeffects \
     libtinyalsa \
     libtinycompress \
+    libtinymix \
     libtinyxml 
 
 # DRM
