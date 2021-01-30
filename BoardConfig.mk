@@ -128,6 +128,7 @@ ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
 
 # Audio
+BOARD_USES_MTK_AUDIO := true
 USE_XML_AUDIO_POLICY_CONF := 1
 
 # Exclude AudioFx
