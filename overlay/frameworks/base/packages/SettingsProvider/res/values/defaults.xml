@@ -18,7 +18,7 @@
 -->
 <resources>
     <!-- Set the automatic brightness mode on by default -->
-    <bool name="def_screen_brightness_automatic_mode">true</bool>
+    <bool name="def_screen_brightness_automatic_mode">false</bool>
   
     <bool name="def_accelerometer_rotation">false</bool>
     
@@ -30,4 +30,6 @@
     
     <!-- Default for UI touch sounds enabled -->
     <bool name="def_sound_effects_enabled">false</bool>
+    
+    <bool name="def_double_tap_to_wake">false</bool>
 </resources>
