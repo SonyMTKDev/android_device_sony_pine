@@ -63,6 +63,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     netd
 
+# Radio
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
+
 # IPv6 tethering
 PRODUCT_PACKAGES += \
     ebtables \
