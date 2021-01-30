@@ -78,7 +78,8 @@ PRODUCT_PACKAGES += \
     hostapd \
     dhcpcd.conf \
     wpa_supplicant \
-    wpa_supplicant.conf 
+    wpa_supplicant.conf \
+    lib_driver_cmd_mt66xx
 
 PRODUCT_COPY_FIES += \
     $(DEVICE_PATH)/configs/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
