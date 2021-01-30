@@ -124,6 +124,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 # OTA
 BLOCK_BASED_OTA := true
+TARGET_OTA_ASSERT_DEVICE := pine,Sony_L1
 
 # SELinux
 BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp-policy
@@ -135,9 +136,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto
 # Charger
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/BOOT/BOOT/boot/boot_mode
-
-# OTA assert
-TARGET_OTA_ASSERT_DEVICE:= pine
 
 # Enable Minikin text layout engine (will be the default soon)
 USE_MINIKIN := true
