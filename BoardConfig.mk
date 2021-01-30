@@ -145,6 +145,9 @@ TARGET_EXCLUDES_AUDIOFX := true
 # Camera
 USE_CAMERA_STUB := true
 
+# Legacy HAL
+TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+
 # Backlights
 TARGET_PROVIDES_LIBLIGHT := true
 
