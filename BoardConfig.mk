@@ -83,7 +83,7 @@ BOARD_RIL_CLASS := ../../../device/sony/pine/ril/
 
 # GPS
 BOARD_GPS_LIBRARIES := true
-BOARD_CONNECTIVITY_MODULE := MT6737
+BOARD_CONNECTIVITY_MODULE := conn_soc
 BOARD_MEDIATEK_USES_GPS := true
 
 # Graphics
