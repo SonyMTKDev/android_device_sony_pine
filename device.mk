@@ -7,6 +7,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 DEVICE_PATH:= device/sony/pine
 
+# Overlay
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
+
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal large xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
