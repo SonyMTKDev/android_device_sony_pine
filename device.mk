@@ -92,6 +92,23 @@ PRODUCT_COPY_FILES += \
 # Target Provides its own INIT script
 TARGET_PROVIDES_INIT_RC := true
 
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/etc/init/audioserver.rc:system/etc/init/audioserver.rc \
+    $(DEVICE_PATH)/configs/etc/init/mediacodec.rc:system/etc/init/mediacodec.rc \
+    $(DEVICE_PATH)/configs/etc/init/cameraserver.rc:system/etc/init/cameraserver.rc \
+    $(DEVICE_PATH)/configs/etc/init/rild.rc:system/etc/init/rild.rc 
+
+# Custom Init Scripts for Pine
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/etc/init/atrace.rc:system/etc/init/atrace.rc \
+    $(DEVICE_PATH)/configs/etc/init/bootanim.rc:system/etc/init/bootanim.rc \
+    $(DEVICE_PATH)/configs/etc/init/bootstat.rc:system/etc/init/bootstat.rc \
+    $(DEVICE_PATH)/configs/etc/init/drmserver.rc:system/etc/init/drmserver.rc \
+    $(DEVICE_PATH)/configs/etc/init/mediacodec.rc:system/etc/init/mediacodec.rc \
+    $(DEVICE_PATH)/configs/etc/init/mediadrmserver.rc:system/etc/init/mediadrmserver.rc \
+    $(DEVICE_PATH)/configs/etc/init/mediaserver.rc:system/etc/init/mediaserver.rc \
+    $(DEVICE_PATH)/configs/etc/init/surfaceflinger.rc:system/etc/init/surfaceflinger.rc
+
 # Shims
 PRODUCT_PACKAGES += \
     libshim_gps \
