@@ -89,6 +89,9 @@ PRODUCT_COPY_FIES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/rootdir,root)
 
+# Target Provides its own INIT script
+TARGET_PROVIDES_INIT_RC := true
+
 # Shims
 PRODUCT_PACKAGES += \
     libshim_gps \
