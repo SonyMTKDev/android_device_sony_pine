@@ -60,7 +60,6 @@ etc/wifi/wifi.cfg
 etc/wifi/wpa_supplicant_overlay.conf
 lib/drm/libdrmctaplugin.so
 lib/drm/libdrmmtkplugin.so
-lib/egl/libGLES_android.so
 lib/hw/audio_policy.stub.so
 lib/liba3m.so
 lib/libalsautils.so
@@ -138,7 +137,6 @@ lib/modules/texfat.ko
 lib/soundfx/libsonysweffect.so
 lib/touchfilter/roadrunner_ukf.so
 lib/touchfilter/tfsw.so
-lib64/egl/libGLES_android.so
 lib64/hw/audio_policy.stub.so
 lib64/hw/nfc_nci.pn54x.default.so
 lib64/liba3m.so
