@@ -89,3 +89,24 @@ LOCAL_MODULE := libshim_asc
 
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
+
+# GUI Shim
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+	gui/gui_shim.cpp \
+    gui/dump_tunel_shim.cpp
+
+LOCAL_SHARED_LIBRARIES := \
+	libui \
+	libgui \
+	libdpframework
+
+LOCAL_STATIC_LIBRARIES := \
+    libaudiopolicycomponents
+
+LOCAL_C_INCLUDES += system/core/include/ frameworks/av/include/ hardware/libhardware/include/    
+
+LOCAL_MODULE := libshim_gui
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
