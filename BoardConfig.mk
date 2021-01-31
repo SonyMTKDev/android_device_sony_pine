@@ -193,6 +193,9 @@ LINKER_FORCED_SHIM_LIBS := \
 TARGET_INIT_VENDOR_LIB := libinit_pine
 TARGET_UNIFIED_DEVICE := true
 
+# Legacy blobs
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+
 # TWRP
 ifneq (,$(strip $(wildcard bootable/recovery-twrp/twrp.cpp)))
 RECOVERY_VARIANT := twrp
