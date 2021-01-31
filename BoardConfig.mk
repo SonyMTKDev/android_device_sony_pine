@@ -86,6 +86,7 @@ BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/cmhw
 
 # RIL
 BOARD_RIL_CLASS := ../../../device/sony/pine/ril/
+SIM_COUNT := 2
 
 # GPS
 BOARD_GPS_LIBRARIES := true
