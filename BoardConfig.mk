@@ -199,6 +199,9 @@ TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
+# Charger
+BOARD_CHARGER_SHOW_PERCENTAGE := true
+
 # TWRP
 ifneq (,$(strip $(wildcard bootable/recovery-twrp/twrp.cpp)))
 RECOVERY_VARIANT := twrp
