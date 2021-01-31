@@ -1,10 +1,11 @@
-# device_sony_pine
+# android_device_sony_pine
 
 Device configuration for Sony XPERIA L1
 ========================================
 
 Basic   | Spec Sheet
 -------:|:-------------------------
+Announced | 2017, Mar
 CPU     | Quad-core 1.45 GHz Cortex-A53
 CHIPSET | Mediatek MT6737T
 GPU     | Mali-T720MP2
@@ -23,6 +24,19 @@ Release Date | March 2017
   - BILUX
   - R0RTIZ2
   - PAUL (SODP)
-  - Me
+  - jmpfbmx
+  - rote66
+  - Myst33d
+  - Maanush
+
+## Credits (some files from their sources):
+  - divis1969
+  - seluce
+  - DeckerSU
+  - mohancm
+  - darklord4822
+  - MT8163
+  
+And about everyone else in the Mediatek community ;)  
   
 ![Sony XPERIA L1](https://fdn2.gsmarena.com/vv/pics/sony/sony-xperia-l1-0.jpg)
