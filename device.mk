@@ -14,10 +14,6 @@ DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
 PRODUCT_AAPT_CONFIG := normal large xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-# Shim symbols
-PRODUCT_PACKAGES += \
-    libmtk_symbols
-
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \

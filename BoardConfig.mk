@@ -160,9 +160,6 @@ MALLOC_SVELTE := true
 # Disable API check
 WITHOUT_CHECK_API := true
 
-# Shims
-TARGET_LDPRELOAD += libmtk_symbols.so
-
 # Misc
 EXTENDED_FONT_FOOTPRINT := true
 
