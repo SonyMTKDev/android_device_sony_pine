@@ -1,10 +1,13 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
+# Device is a phone
 PRODUCT_CHARACTERISTICS := phone
 
+# Date
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
+# Local Path
 DEVICE_PATH:= device/sony/pine
 
 # Overlay
@@ -36,26 +39,31 @@ PRODUCT_PACKAGES += \
     libmockdrmcryptoplugin \
     libdrmclearkeyplugin \
 
-#vendor_libs
+# Lights
 PRODUCT_PACKAGES += \
- lights.mt6737t \
- power.mt6737t \
- local_time.default \
- audio.primary.default \
- vibrator.default \
- power.default \
- gralloc.default \
- librs_jni \
- gps.mt6737t
+    lights.mt6737t
 
-#su
+# Power
 PRODUCT_PACKAGES += \
-	su 
-#camera
+    power.mt6737t
+
+# Local Time
+PRODUCT_PACKAGES += \
+    local_time.default
+
+# GPS
+PRODUCT_PACKAGES += \
+    gps.mt6737t
+
+# SU
+PRODUCT_PACKAGES += \
+    su 
+
+# Camera
 PRODUCT_PACKAGES += \
     Snap
 
-# network
+# Network
 PRODUCT_PACKAGES += \
     netd
 
@@ -71,7 +79,7 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
 
-#wifi
+# Wi-Fi
 PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
@@ -80,26 +88,28 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf \
     lib_driver_cmd_mt66xx
 
+# Wi-Fi Configs
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+
 PRODUCT_COPY_FIES += \
     $(DEVICE_PATH)/configs/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
     $(DEVICE_PATH)/configs/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
     $(DEVICE_PATH)/configs/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny
 
-#Ramdisk
+# Ramdisk
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/rootdir,root)
 
 # Target Provides its own INIT script
 TARGET_PROVIDES_INIT_RC := true
 
+# Custom Init Scripts for Pine
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/etc/init/audioserver.rc:system/etc/init/audioserver.rc \
     $(DEVICE_PATH)/configs/etc/init/mediacodec.rc:system/etc/init/mediacodec.rc \
     $(DEVICE_PATH)/configs/etc/init/cameraserver.rc:system/etc/init/cameraserver.rc \
-    $(DEVICE_PATH)/configs/etc/init/rild.rc:system/etc/init/rild.rc 
-
-# Custom Init Scripts for Pine
-PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/etc/init/rild.rc:system/etc/init/rild.rc \
     $(DEVICE_PATH)/configs/etc/init/atrace.rc:system/etc/init/atrace.rc \
     $(DEVICE_PATH)/configs/etc/init/bootanim.rc:system/etc/init/bootanim.rc \
     $(DEVICE_PATH)/configs/etc/init/bootstat.rc:system/etc/init/bootstat.rc \
@@ -125,29 +135,26 @@ PRODUCT_PACKAGES += \
 BOARD_SECCOMP_POLICY := \
     $(DEVICE_PATH)/seccomp-policy
 
-#USB
+# USB
 PRODUCT_PACKAGES += \
  com.android.future.usb.accessory 
 
-# Default.prop
+# Override Default Properties
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1 \
     sys.usb.ffs.aio_compat=1 \
     ro.mount.fs=EXT4 \
     ro.mtk_key_manager_kb_path=1 
 
-# Bluetooth
-PRODUCT_PACKAGES += \
-	bluetooth.default
-
+# Bluetooth Config
 PRODUCT_COPY_FILES += \
 	$(DEVICE_PATH)/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf
 
-#Display
+# Display
 PRODUCT_PACKAGES += \
     libion
  
-# Graphic
+# Graphics
 PRODUCT_PACKAGES += \
     libGLES_android \
     libgralloc_extra \
@@ -158,7 +165,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
-# DOZE
+# Doze
 PRODUCT_PACKAGES += \
     SonyDoze
 
@@ -179,10 +186,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-# wifi
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
-
 # Audio Policy
 PRODUCT_COPY_FILES += \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/etc/etc/a2dp_audio_policy_configuration.xml \
@@ -193,17 +196,17 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/audio/AudioParamOptions.xml:system/etc/audio_param/AudioParamOptions.xml \
     $(DEVICE_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf
 
-# CODECS
+# Media Codecs
 PRODUCT_COPY_FILES += \
-  $(DEVICE_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-  $(DEVICE_PATH)/configs/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml \
-  $(DEVICE_PATH)/configs/media_codecs_mediatek_video.xml:system/etc/media_codecs_mediatek_video.xml \
-  $(DEVICE_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-  $(DEVICE_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
-  frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-  frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-  frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
-  frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml 
+    $(DEVICE_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(DEVICE_PATH)/configs/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml \
+    $(DEVICE_PATH)/configs/media_codecs_mediatek_video.xml:system/etc/media_codecs_mediatek_video.xml \
+    $(DEVICE_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
+    $(DEVICE_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml 
 
 # Misc
 PRODUCT_PACKAGES += \
