@@ -185,6 +185,10 @@ LINKER_FORCED_SHIM_LIBS := \
     /system/vendor/lib/audio.primary.mt6737t.so|libshim_audio.so \
     /system/vendor/lib64/audio.primary.mt6737t.so|libshim_audio.so
 
+# Init
+TARGET_INIT_VENDOR_LIB := libinit_pine
+TARGET_UNIFIED_DEVICE := true
+
 # TWRP
 ifneq (,$(strip $(wildcard bootable/recovery-twrp/twrp.cpp)))
 RECOVERY_VARIANT := twrp
