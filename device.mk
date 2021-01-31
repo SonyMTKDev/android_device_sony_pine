@@ -102,7 +102,8 @@ PRODUCT_PACKAGES += \
     libshim_program_binary \
     libshim_xlog \
     libshim_asc \
-    libshim_gui
+    libshim_gui \
+    libshim_audio
 
 # Media Extractors
 BOARD_SECCOMP_POLICY := \
