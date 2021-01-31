@@ -95,7 +95,8 @@ PRODUCT_PACKAGES += \
 
 # Shims
 PRODUCT_PACKAGES += \
-    libshim_vt
+    libshim_vt \
+    libshim_program_binary
 
 # Media Extractors
 BOARD_SECCOMP_POLICY := \

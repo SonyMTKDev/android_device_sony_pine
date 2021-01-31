@@ -166,7 +166,9 @@ EXTENDED_FONT_FOOTPRINT := true
 # Shim Symbols
 LINKER_FORCED_SHIM_LIBS := \
     /system/vendor/lib/libvtmal.so|libshim_vt.so \
-    /system/vendor/lib64/libvtmal.so|libshim_vt.so
+    /system/vendor/lib64/libvtmal.so|libshim_vt.so \
+    /system/vendor/lib/libprogrambinary.so|libshim_program_binary.so \
+    /system/vendor/lib64/libprogrambinary.so|libshim_program_binary.so
 
 # TWRP
 ifneq (,$(strip $(wildcard bootable/recovery-twrp/twrp.cpp)))
