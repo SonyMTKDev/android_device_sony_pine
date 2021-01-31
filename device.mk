@@ -165,6 +165,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
+# Busybox
+PRODUCT_PACKAGES += \
+    busybox
+
 # Doze
 PRODUCT_PACKAGES += \
     SonyDoze
