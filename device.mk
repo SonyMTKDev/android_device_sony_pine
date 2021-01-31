@@ -89,10 +89,6 @@ PRODUCT_COPY_FIES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/rootdir,root)
 
-# Shim symbols
-PRODUCT_PACKAGES += \
-    libxlog
-
 # Shims
 PRODUCT_PACKAGES += \
     libshim_gps \
