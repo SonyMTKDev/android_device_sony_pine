@@ -93,6 +93,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libxlog
 
+# Shims
+PRODUCT_PACKAGES += \
+    libshim_vt
+
 # Media Extractors
 BOARD_SECCOMP_POLICY := \
     $(DEVICE_PATH)/seccomp-policy

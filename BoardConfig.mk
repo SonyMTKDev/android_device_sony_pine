@@ -163,6 +163,11 @@ WITHOUT_CHECK_API := true
 # Misc
 EXTENDED_FONT_FOOTPRINT := true
 
+# Shim Symbols
+LINKER_FORCED_SHIM_LIBS := \
+    /system/vendor/lib/libvtmal.so|libshim_vt.so \
+    /system/vendor/lib64/libvtmal.so|libshim_vt.so
+
 # TWRP
 ifneq (,$(strip $(wildcard bootable/recovery-twrp/twrp.cpp)))
 RECOVERY_VARIANT := twrp
