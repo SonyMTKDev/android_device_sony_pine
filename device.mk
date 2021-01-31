@@ -96,6 +96,7 @@ PRODUCT_PACKAGES += \
 # Shims
 PRODUCT_PACKAGES += \
     libshim_gps \
+    libshim_camera \
     libshim_vt \
     libshim_program_binary
 
