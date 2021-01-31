@@ -93,6 +93,10 @@ PRODUCT_COPY_FIES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/rootdir,root)
 
+# Shim symbols
+PRODUCT_PACKAGES += \
+    libxlog
+
 # Media Extractors
 BOARD_SECCOMP_POLICY := \
     $(DEVICE_PATH)/seccomp-policy
