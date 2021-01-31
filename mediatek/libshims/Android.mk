@@ -26,6 +26,7 @@ LOCAL_MODULE := libshim_camera
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
+# Program Binary Service Shim
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
