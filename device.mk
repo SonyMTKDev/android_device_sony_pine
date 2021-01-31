@@ -98,7 +98,8 @@ PRODUCT_PACKAGES += \
     libshim_gps \
     libshim_camera \
     libshim_vt \
-    libshim_program_binary
+    libshim_program_binary \
+    libshim_xlog
 
 # Media Extractors
 BOARD_SECCOMP_POLICY := \
