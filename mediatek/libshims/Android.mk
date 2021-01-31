@@ -100,7 +100,8 @@ LOCAL_SRC_FILES := \
 LOCAL_SHARED_LIBRARIES := \
 	libui \
 	libgui \
-	libdpframework
+	libdpframework \
+    liblog
 
 LOCAL_STATIC_LIBRARIES := \
     libaudiopolicycomponents
