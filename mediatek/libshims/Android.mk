@@ -30,7 +30,7 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
-    program_binary/program_binary_shim.cpp
+    program_binary/program_binary.cpp
 
 LOCAL_SHARED_LIBRARIES := \
     libcutils
