@@ -6,9 +6,9 @@ TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 # Inherit from the vendor tree
 include vendor/sony/pine/BoardConfigVendor.mk
 
-# Bootanimation
-TARGET_SCREEN_WIDTH := 1280
-TARGET_SCREEN_HEIGHT := 720
+# Boot Animation
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
 
 # Platform
 TARGET_BOARD_PLATFORM := mt6737t
