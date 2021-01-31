@@ -196,6 +196,9 @@ TARGET_UNIFIED_DEVICE := true
 # Legacy blobs
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
+# Sensors
+TARGET_NO_SENSOR_PERMISSION_CHECK := true
+
 # TWRP
 ifneq (,$(strip $(wildcard bootable/recovery-twrp/twrp.cpp)))
 RECOVERY_VARIANT := twrp
