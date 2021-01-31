@@ -1,0 +1,25 @@
+From 873e45847c981499445a08491648ddfd252ae4c0 Mon Sep 17 00:00:00 2001
+From: rote66 <pontifex23872388@gmail.com>
+Date: Thu, 20 Feb 2020 20:39:57 +0800
+Subject: [PATCH] if.h
+
+Change-Id: I4d4c518189ba08d9fe5c78500cbcdc61af31de91
+---
+ libc/kernel/uapi/linux/if_pppox.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/libc/kernel/uapi/linux/if_pppox.h b/libc/kernel/uapi/linux/if_pppox.h
+index 7b4dbd288..ea70d83ab 100644
+--- a/libc/kernel/uapi/linux/if_pppox.h
++++ b/libc/kernel/uapi/linux/if_pppox.h
+@@ -19,6 +19,7 @@
+ #ifndef _UAPI__LINUX_IF_PPPOX_H
+ #define _UAPI__LINUX_IF_PPPOX_H
+ #include <linux/types.h>
++#include <linux/if.h>
+ #include <asm/byteorder.h>
+ /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
+ #include <linux/socket.h>
+-- 
+2.25.0
+
