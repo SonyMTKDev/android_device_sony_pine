@@ -659,12 +659,6 @@ on post-fs-data
     # secure memory
     chown system system /proc/secmem0
 
-    #//<2016/12/02-AlanChang, Fix Trustonic Test Suite test case failure.
-    # mcDriverDaemon
-    mkdir /data/misc/mcRegistry 0775 system system
-    mkdir /data/misc/mcRegistry/TbStorage 0775 system system
-    #//>2016/12/02-AlanChang.
-
     # AGPS
     mkdir /data/agps_supl 0771 gps system
 
