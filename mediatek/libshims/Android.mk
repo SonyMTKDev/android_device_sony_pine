@@ -56,7 +56,6 @@ LOCAL_CFLAGS := -O3 -Wno-unused-variable -Wno-unused-parameter
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
-
 # XLOG Shim
 include $(CLEAR_VARS)
 
@@ -66,5 +65,15 @@ LOCAL_SHARED_LIBRARIES := liblog
 
 LOCAL_MODULE := libshim_xlog
 
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
+
+# MAL Shim (vt)
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+	misc/vtservice_shim.cpp
+
+LOCAL_MODULE := libshim_mal
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)

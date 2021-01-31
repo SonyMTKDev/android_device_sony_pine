@@ -98,6 +98,7 @@ PRODUCT_PACKAGES += \
     libshim_gps \
     libshim_camera \
     libshim_vt \
+    libshim_mal \
     libshim_program_binary \
     libshim_xlog
 

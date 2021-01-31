@@ -168,6 +168,7 @@ LINKER_FORCED_SHIM_LIBS := \
     /system/vendor/bin/mtk_agpsd|libshim_gps.so \
     /system/vendor/lib/libcam_utils.so|libshim_camera.so \
     /system/vendor/lib64/libcam_utils.so|libshim_camera.so \
+    /system/vendor/bin/vtservice|libshim_mal.so \
     /system/lib/liblog.so|libshim_xlog.so \
     /system/lib64/liblog.so|libshim_xlog.so \
     /system/vendor/lib/libvtmal.so|libshim_vt.so \
