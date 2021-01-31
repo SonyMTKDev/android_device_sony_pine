@@ -532,7 +532,6 @@ vendor/lib/libfposervice.so
 vendor/lib/libgas.so
 vendor/lib/libged.so
 vendor/lib/libgpu_aux.so
-vendor/lib/libgui_ext.so
 vendor/lib/libh264enc_sa.ca7.so
 vendor/lib/libh264enc_sb.ca7.so
 vendor/lib/libHEVCdec_sa.ca7.android.so
@@ -785,7 +784,6 @@ vendor/lib64/libfposervice.so
 vendor/lib64/libgas.so
 vendor/lib64/libged.so
 vendor/lib64/libgpu_aux.so
-vendor/lib64/libgui_ext.so
 vendor/lib64/libh264enc_sa.ca7.so
 vendor/lib64/libhwm.so
 vendor/lib64/libhydra.so
