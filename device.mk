@@ -71,6 +71,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     netd
 
+# Sim Management Toolkit
+PRODUCT_PACKAGES += \
+    Stk
+
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
