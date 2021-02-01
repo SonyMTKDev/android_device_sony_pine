@@ -11,7 +11,7 @@ cd ../../../..
 echo -e "${RED}We are gonna patch bionic${NC}"
 cd bionic
 patch -p1 < ../device/sony/pine/patches/bionic/if.patch
-patch -p1 < ../device/sony/pine/patches/bionic/bionic_libc.patch
+patch -p1 < ../device/sony/pine/patches/bionic/libc.patch
 cd ..
 echo -e "${GREEN}We are gonna patch frameworks/av${NC}"
 cd frameworks/av
