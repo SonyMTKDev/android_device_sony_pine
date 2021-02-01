@@ -83,6 +83,9 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    net.tethering.noprovisioning=true
+
 # Wi-Fi
 PRODUCT_PACKAGES += \
     libwpa_client \
