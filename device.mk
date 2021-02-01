@@ -73,7 +73,8 @@ PRODUCT_PACKAGES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.kernel.android.checkjni=0
+    ro.kernel.android.checkjni=0 \
+    ro.telephony.ril_class=MT6735
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/telephony/spn-conf.xml:system/etc/spn-conf.xml
