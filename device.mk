@@ -53,7 +53,8 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.mt6737t
+    gps.mt6737t \
+    libcurl
 
 # SU
 PRODUCT_PACKAGES += \
