@@ -141,7 +141,8 @@ BOARD_SECCOMP_POLICY := \
 
 # USB
 PRODUCT_PACKAGES += \
- com.android.future.usb.accessory 
+    com.android.future.usb.accessory \
+    librs_jni
 
 # Override Default Properties
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -265,8 +266,7 @@ PRODUCT_COPY_FILES += \
 
 # Misc
 PRODUCT_PACKAGES += \
-    librs_jni \
-    libnl_2
+    libnl_2    
 
 # NFC Permissions
 PRODUCT_COPY_FILES += \
