@@ -173,6 +173,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SonyDoze
 
+# FMRadio
+MTK_FM_SUPPORT := true
+
+PRODUCT_PACKAGES += \
+    libfmjni \
+    FMRadio
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
