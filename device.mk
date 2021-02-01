@@ -177,7 +177,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 
 # Bluetooth Config
 PRODUCT_COPY_FILES += \
-	$(DEVICE_PATH)/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf
+	$(DEVICE_PATH)/configs/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf
 
 # Display
 PRODUCT_PACKAGES += \
