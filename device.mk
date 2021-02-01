@@ -56,6 +56,9 @@ PRODUCT_PACKAGES += \
     gps.mt6737t \
     libcurl
 
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/gps/agps_profiles_conf2.xml:system/vendor/etc/agps_profiles_conf2.xml
+
 # SU
 PRODUCT_PACKAGES += \
     su 
