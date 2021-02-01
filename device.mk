@@ -138,6 +138,10 @@ PRODUCT_PACKAGES += \
     libshim_gui \
     libshim_audio
 
+# Sensors
+PRODUCT_PACKAGES += \
+    libem_sensor_jni
+
 # Media Extractors
 BOARD_SECCOMP_POLICY := \
     $(DEVICE_PATH)/seccomp-policy
