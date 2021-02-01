@@ -163,6 +163,11 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.mount.fs=EXT4 \
     ro.mtk_key_manager_kb_path=1 
 
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.adb.secure=0 \
+    ro.debuggable=1 \
+    ro.secure=0
+
 # Bluetooth Config
 PRODUCT_COPY_FILES += \
 	$(DEVICE_PATH)/bluetooth/bt_did.conf:system/etc/bluetooth/bt_did.conf
