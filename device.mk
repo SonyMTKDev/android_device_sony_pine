@@ -186,7 +186,6 @@ PRODUCT_PACKAGES += \
 # Graphics
 PRODUCT_PACKAGES += \
     libGLES_android \
-    libgralloc_extra \
     libgui_ext \
     libui_ext
 
