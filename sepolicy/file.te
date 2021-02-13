@@ -295,3 +295,17 @@ type rild_embms_socket, file_type, mlstrustedobject;
 
 # eMBMS VzW SDK file
 type embms_library_file, file_type, data_file_type;
+
+# RFS
+type rfs_file, file_type, data_file_type;
+type rfs_shared_hlos_file, file_type, data_file_type;
+
+# Persist file types
+type persist_file, file_type;
+
+# Default type for anything under /firmware.
+type firmware_file, fs_type, contextmount_type;
+
+# TA
+type tad_socket, file_type;
+type ta_data_file, file_type;
