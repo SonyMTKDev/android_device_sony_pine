@@ -4,6 +4,9 @@ VENDOR_PATH := vendor/sony/pine
 # inherit from the proprietary version
 -include $(VENDOR_PATH)/BoardConfigVendor.mk
 
+# Headers
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
+
 # System Prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
