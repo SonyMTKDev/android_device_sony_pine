@@ -17,7 +17,7 @@ on init
 
 # SONY: TrimArea Daemon
 # Last 2 args: start block(blk size 128k), number of blocks(partitionsize(kb)/128(kb))
-service tad_static /sbin/tad_static /dev/block/mmcblk0p1 0,16
+service tad_static /sbin/tad_static /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/ta 0,16
     user tad
     group tad root
     socket tad stream 0660 system trimarea
