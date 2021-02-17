@@ -340,7 +340,6 @@ vendor/bin/rs2spir
 vendor/bin/rtt
 vendor/bin/s62xd
 vendor/bin/slpd
-vendor/bin/sn
 vendor/bin/softcharged
 vendor/bin/spir2cl
 vendor/bin/spm_loader

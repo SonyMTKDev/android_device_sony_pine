@@ -1461,12 +1461,6 @@ service fuelgauged /vendor/bin/fuelgauged
     user system
     group system
 
-service sn /vendor/bin/sn
-    class late_start
-    user system
-    group system sdcard_rw
-    oneshot
-
 #add for power-off alarm
 service poad /vendor/bin/poad
     class main
