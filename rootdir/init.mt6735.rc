@@ -40,6 +40,7 @@ on early-init
 
     # TA
     setprop arima.ftboot 1
+    setprop arima.ta_rf_rs 1
 
 on init
 
