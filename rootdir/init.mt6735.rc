@@ -146,6 +146,10 @@ on fs
    mount iso9660 loop@/system/etc/dop.iso /mnt/cd-rom ro
 # [Arima_8100][bozhi_lin] 20170124 end
 
+# PerfServiceNative symlink
+  ln -sf /system/vendor/lib/libperfservicenative.so /system/lib/libperfservicenative.so
+  ln -sf /system/vendor/lib64/libperfservicenative.so /system/lib64/libperfservicenative.so
+
 on post-fs
     write /proc/bootprof "INIT:post-fs"
     # Support legacy paths
