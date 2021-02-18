@@ -41,6 +41,7 @@ on early-init
     # TA
     setprop arima.ftboot 1
     setprop arima.ta_rf_rs 1
+    setprop persist.mtk_usp_md_sbp_code 2
 
 on init
 
