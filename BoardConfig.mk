@@ -18,6 +18,9 @@ SUPPRESS_MTK_AUDIO_BLOB_ERR_MSG := true
 # Exclude AudioFx
 TARGET_EXCLUDES_AUDIOFX := true
 
+# Gatekeeper
+BOARD_USE_SOFT_GATEKEEPER := true
+
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_MTK := true
