@@ -194,7 +194,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libGLES_android \
     libgui_ext \
-    libui_ext
+    libui_ext \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service
 
 # Charger Mode
 PRODUCT_PACKAGES += \
