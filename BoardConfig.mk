@@ -76,9 +76,9 @@ BOARD_GPS_LIBRARIES := true
 BOARD_MEDIATEK_USES_GPS := true
 BOARD_CONNECTIVITY_MODULE := conn_soc 
 
-# Cyanogenmod Hardware
+# LineageOS Hardware
 BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/cmhw
+BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/lineagehw
 
 # Mediatek Flags
 BOARD_USES_MTK_HARDWARE := true
