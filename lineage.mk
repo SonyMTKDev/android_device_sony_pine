@@ -43,6 +43,10 @@ PRODUCT_MANUFACTURER := SONY
 
 PRODUCT_GMS_CLIENTID_BASE := android-sonymobile
 
+# Vendor security patch level
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.lineage.build.vendor_security_patch=2019-04-24
+
 # Set product device & name
 PRODUCT_BUILD_PROP_OVERRIDES += \
    PRODUCT_NAME=pine \
