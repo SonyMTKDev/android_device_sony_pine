@@ -156,6 +156,9 @@ ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_VFP := true
 
+# Disable HW ID Match Check
+BOARD_DISABLE_HW_ID_MATCH_CHECK := true
+
 # Manifest
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/manifest.xml
 
