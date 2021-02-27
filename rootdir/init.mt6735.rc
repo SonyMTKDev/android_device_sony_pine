@@ -44,6 +44,9 @@ on early-init
     setprop persist.mtk_usp_md_sbp_code 2
     setprop persist.radio.cfu.querytype 0
 
+    # RIL
+    setprop ril.data.mal 0
+
 on init
 
     # Support legacy paths
