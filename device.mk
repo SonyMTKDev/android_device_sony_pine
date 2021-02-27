@@ -53,6 +53,10 @@ PRODUCT_PACKAGES += \
     power.mt6737t \
     android.hardware.power@1.0-impl
 
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl
+
 # Local Time
 PRODUCT_PACKAGES += \
     local_time.default
