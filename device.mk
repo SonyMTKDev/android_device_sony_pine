@@ -102,7 +102,8 @@ PRODUCT_PACKAGES += \
     dhcpcd.conf \
     wpa_supplicant \
     wpa_supplicant.conf \
-    lib_driver_cmd_mt66xx
+    lib_driver_cmd_mt66xx \
+    android.hardware.wifi@1.0-service
 
 # Wi-Fi Configs
 PRODUCT_COPY_FILES += \
