@@ -159,7 +159,8 @@ BOARD_SECCOMP_POLICY := \
 # USB
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory \
-    librs_jni
+    librs_jni \
+    android.hardware.usb@1.0-service
 
 # Override Default Properties
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
