@@ -1,7 +1,6 @@
-# android_device_sony_pine
+# Sony Xperia L1 Android Device Tree
 
-Device configuration for Sony XPERIA L1
-========================================
+The Sony Xperia L1 (codenamed "pine") is a low-range smartphone from Sony announced in 2017.
 
 Basic   | Spec Sheet
 -------:|:-------------------------
@@ -19,24 +18,9 @@ Rear Camera  | 13.0 MP
 Front Camera | 5.0 MP
 Release Date | March 2017
 
-### Credits:
-  - KJONES
-  - BILUX
-  - R0RTIZ2
-  - PAUL (SODP)
-  - jmpfbmx
-  - rote66
-  - Myst33d
-  - Maanush
+<p align="center">
+  <img src="https://cnet4.cbsistatic.com/img/_8U1JAAy0LqAwPxvAipDNsCXwk0=/1200x675/2017/03/20/7f0bcd54-61c1-49ba-9cb8-8953914e49e0/sony-xperia-l1-caracteristicas.jpg" alt="douglas"/>
+</p>
 
-## Credits (some files from their sources):
-  - divis1969
-  - seluce
-  - DeckerSU
-  - mohancm
-  - darklord4822
-  - MT8163
-  
-And about everyone else in the Mediatek community ;)  
-  
-![Sony XPERIA L1](https://fdn2.gsmarena.com/vv/pics/sony/sony-xperia-l1-0.jpg)
+This branch is for building LineageOS 14.1 (CM).
+
