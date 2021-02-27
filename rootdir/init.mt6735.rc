@@ -42,6 +42,7 @@ on early-init
     setprop arima.ftboot 1
     setprop arima.ta_rf_rs 1
     setprop persist.mtk_usp_md_sbp_code 2
+    setprop persist.radio.cfu.querytype 0
 
 on init
 
