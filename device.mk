@@ -50,7 +50,8 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.mt6737t
+    power.mt6737t \
+    android.hardware.power@1.0-impl
 
 # Local Time
 PRODUCT_PACKAGES += \
