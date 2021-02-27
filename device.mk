@@ -46,7 +46,8 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.mt6737t
+    lights.mt6737t \
+    android.hardware.light@2.0-impl-mediatek
 
 # Power
 PRODUCT_PACKAGES += \
