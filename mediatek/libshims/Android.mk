@@ -64,7 +64,7 @@ LOCAL_SRC_FILES := \
 	vt/skia_shim.cpp
 
 LOCAL_MODULE := libshim_vt
-LOCAL_SHARED_LIBRARIES := libskia
+LOCAL_SHARED_LIBRARIES := libskia libstagefright_foundation libui libgui
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
