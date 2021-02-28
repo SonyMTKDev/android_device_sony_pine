@@ -135,6 +135,10 @@ index a098d59..ab74a6f 100644
 +    return 0;
 +}
 +
++int ifc_set_ipsec_forward(const char *name) {
++    return 0;
++}
++
 +static int ifc_netd_sock_init(void)
 +{
 +    int ifc_netd_sock;
@@ -334,6 +338,7 @@ index 3b27234..116c5c0 100644
 +extern int ifc_set_fwmark_rule(const char *ifname, int mark, int add);
 +extern int ifc_set_txq_state(const char *ifname, int state);
 +extern int ifc_ccmni_md_cfg(const char *ifname, int md_id);
++extern int ifc_set_ipsec_forward(const char *name);
 +struct uid_err {
 +    int appuid;
 +    int errorNum;
@@ -345,4 +350,3 @@ index 3b27234..116c5c0 100644
  #endif /* _NETUTILS_IFC_H_ */
 -- 
 2.7.4
-
