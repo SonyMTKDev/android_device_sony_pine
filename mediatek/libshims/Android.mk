@@ -73,7 +73,7 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := misc/asc_shim.cpp
 
-LOCAL_SHARED_LIBRARIES := libsurfaceflinger
+LOCAL_SHARED_LIBRARIES := libsurfaceflinger libui libgui libcutils
 
 LOCAL_MODULE := libshim_asc
 
