@@ -20,9 +20,12 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
-	camera/sony_camera.cpp
+	camera/sony_camera.cpp \
+	camera/camera_shim.cpp
 
 LOCAL_MODULE := libshim_camera
+LOCAL_SHARED_LIBRARIES := libui
+
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
 
