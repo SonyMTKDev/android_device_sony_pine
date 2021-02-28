@@ -166,7 +166,7 @@ BOARD_DISABLE_HW_ID_MATCH_CHECK := true
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/manifest.xml
 
 # SELinux
-BOARD_SEPOLICY_DIRS := $(DEVICE_PATH)/sepolicy
+#BOARD_SEPOLICY_DIRS := $(DEVICE_PATH)/sepolicy
 BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp-policy
 
 # Shim Symbols
