@@ -990,13 +990,13 @@ service modemsbp2 /vendor/bin/modemsbp_con2
 	  oneshot
 
 
-on property:ro.build.type=eng
-start atci_service
-start atcid-daemon-e
+#on property:ro.build.type=eng
+#start atci_service
+#start atcid-daemon-e
 
-on property:persist.service.atci.autostart=1
-start atci_service
-start atcid-daemon-u
+#on property:persist.service.atci.autostart=1
+#start atci_service
+#start atcid-daemon-u
 
 service audio-daemon /vendor/bin/audiocmdservice_atci
     class main

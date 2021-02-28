@@ -144,9 +144,9 @@ service mpobserver /vendor/bin/mpobserver
     class main
     user root
 
-on early_property:ro.build.type=eng
-start atci_service
-start atcid-daemon-e
+#on early_property:ro.build.type=eng
+#start atci_service
+#start atcid-daemon-e
 service audio-daemon /vendor/bin/audiocmdservice_atci
     class main
     socket atci-audio stream 660 media system
