@@ -204,3 +204,7 @@ int ifc_ipv6_trigger_rs(char *ifname){
 
     return 0;
 }
+
+int ifc_set_ipsec_forward(const char *name) {
+    return 0;
+}
