@@ -72,7 +72,8 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
-	vt/vt_shim.cpp
+	vt/vt_shim.cpp \
+	vt/skia_shim.cpp
 
 LOCAL_MODULE := libshim_vt
 LOCAL_PROPRIETARY_MODULE := true
