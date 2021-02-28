@@ -181,9 +181,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.dun.override=0 \
     sys.usb.ffs.aio_compat=1 \
     ro.mount.fs=EXT4 \
-    ro.mtk_key_manager_kb_path=1 
-
-ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.mtk_key_manager_kb_path=1 \
     ro.adb.secure=0 \
     ro.debuggable=1 \
     ro.secure=0
