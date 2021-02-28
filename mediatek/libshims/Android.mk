@@ -126,3 +126,11 @@ LOCAL_MODULE := libshim_audio
 
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := misc/ifc_shim.c
+LOCAL_SHARED_LIBRARIES := liblog libcutils
+LOCAL_MODULE := libshim_ifc
+LOCAL_C_INCLUDES += system/core/libnetutils/include
+LOCAL_MODULE_TAGS := optional
+include $(BUILD_SHARED_LIBRARY)

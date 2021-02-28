@@ -156,7 +156,8 @@ PRODUCT_PACKAGES += \
     libshim_xlog \
     libshim_asc \
     libshim_gui \
-    libshim_audio
+    libshim_audio \
+	libshim_ifc
 
 # Sensors
 PRODUCT_PACKAGES += \
