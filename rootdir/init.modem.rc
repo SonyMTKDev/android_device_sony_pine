@@ -125,14 +125,14 @@ service ccci_rpcd /vendor/bin/ccci_rpcd 0
     class core
     oneshot
 
-service pppd_gprs /system/bin/pppd_dt /dev/ttyACM0 debug noauth refuse-eap usepeerdns nodetach
+service pppd_gprs /vendor/bin/pppd_dt /dev/ttyACM0 debug noauth refuse-eap usepeerdns nodetach
     user root
     group radio cache inet misc
     disabled
     oneshot
 
 #Add by T.Zh for ppp daemon
-service pppd /system/bin/pppd file /data/misc/ppp/ppp_options
+service pppd /vendor/bin/pppd file /data/misc/ppp/ppp_options
     user root
     disabled 
     oneshot

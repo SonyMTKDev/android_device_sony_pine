@@ -12,6 +12,6 @@ on post-fs-data
     mkdir /data/aee_exp 0755 root root
     chmod /data/aee_exp 0755
 
-service crashmonitorns /system/bin/crashmonitorns
+service crashmonitorns /vendor/bin/crashmonitorns
     user root
     class main

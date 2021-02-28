@@ -13,7 +13,7 @@ on post-fs-data
     mkdir /data/credmgr 0770 system credmgr_client
     mkdir /cache/pc 0770 radio system
 
-service secd /system/bin/secd
+service secd /vendor/bin/secd
     user system
     group system
     socket secd_ebl_sock stream 0660 system credmgr_client
@@ -34,12 +34,12 @@ on post-fs
 on property:gsm.nitz.time=*
    start scdnotifier_nitz
 
-service scd /system/bin/scd
+service scd /vendor/bin/scd
     class late_start
     user system
     group system
 
-service scdnotifier_nitz /system/bin/scdnotifier nitz
+service scdnotifier_nitz /vendor/bin/scdnotifier nitz
     class main
     user system
     group system
@@ -49,14 +49,14 @@ service scdnotifier_nitz /system/bin/scdnotifier nitz
 
 # tpm-service
 # Allows other system application to use tpm from java
-service tpm-service /system/bin/tpm-service
+service tpm-service /vendor/bin/tpm-service
     class late_start
     user tpm-service
     group system tpm-service trimarea drmrpc
 
 
 # Start tbase_helperd
-service tbase_helperd /system/bin/tbase_helperd
+service tbase_helperd /vendor/bin/tbase_helperd
     class late_start
     user system
     group system

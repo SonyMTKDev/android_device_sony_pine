@@ -19,7 +19,7 @@ on post-fs-data
     setprop ro.support.irda 0
 
 # Native daemon for PacketFilter
-service apfd /system/bin/apfd
+service apfd /vendor/bin/apfd
     class main
     socket apfd_socket stream 0660 root system
     group system

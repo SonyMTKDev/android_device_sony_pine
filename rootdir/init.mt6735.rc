@@ -128,7 +128,7 @@ on fs
     write /proc/bootprof "INIT:Mount_START"
     write /sys/kernel/debug/tracing/trace_marker "B|1|Mount"
     mount_all /fstab.mt6735
-    exec /system/bin/tune2fs -O has_journal -u 10010 -r 4096 /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/userdata
+    exec /vendor/bin/tune2fs -O has_journal -u 10010 -r 4096 /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/userdata
     write /sys/kernel/debug/tracing/trace_marker "E"
     write /proc/bootprof "INIT:Mount_END"
     #mount Qnovo
@@ -223,7 +223,7 @@ on post-fs-data
     write /sys/class/firmware/timeout 10
 
     # Create directory for font change support
-    exec u:r:font_selector_make_dir:s0 system -- /system/bin/font-selector-make-dir.sh
+    exec u:r:font_selector_make_dir:s0 system -- /vendor/bin/font-selector-make-dir.sh
 
 # GPS
     mkdir /data/gps_mnl 0771 gps system
@@ -233,7 +233,7 @@ on post-fs-data
     mkdir /data/nfc_socket 0771 nfc radio
 
 #copy status files from cache partition to internal sdcard at post-fs-data
-     exec u:r:fota-init:s0 -- /system/bin/sh /system/etc/post-fs-data-fota.sh
+     exec u:r:fota-init:s0 -- /vendor/bin/sh /system/etc/post-fs-data-fota.sh
 # -----------------------
 
     #change partition permission
@@ -915,7 +915,7 @@ service met_log_d /vendor/bin/met_log_d
     class main
 
 # bugreport is triggered by holding down volume down, volume up and power
-service bugreport /system/bin/dumpstate -d -p -B \
+service bugreport /vendor/bin/dumpstate -d -p -B \
         -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
     class main
     disabled
@@ -983,7 +983,7 @@ service atcid-daemon-e /vendor/bin/atcid
 
 
 #to set sbp code
-service modemsbp2 /system/bin/modemsbp_con2
+service modemsbp2 /vendor/bin/modemsbp_con2
 	  class main
 	  user root
 	  group root system
@@ -1027,42 +1027,42 @@ service rbfota /vendor/bin/fota1
     oneshot
 
 
-service dhcpcd_bt-pan /system/bin/dhcpcd -BK -dd
+service dhcpcd_bt-pan /vendor/bin/dhcpcd -BK -dd
     class main
     user root
     group net_admin net_raw
     disabled
     oneshot
 
-service dhcpcd_wlan0 /system/bin/dhcpcd -BK -dd
+service dhcpcd_wlan0 /vendor/bin/dhcpcd -BK -dd
     class main
     user root
     group net_admin net_raw
     disabled
     oneshot
 
-service dhcpcd_p2p /system/bin/dhcpcd -BK -dd
+service dhcpcd_p2p /vendor/bin/dhcpcd -BK -dd
     class main
     user root
     group net_admin net_raw
     disabled
     oneshot
 
-service iprenew_wlan0 /system/bin/dhcpcd -n
+service iprenew_wlan0 /vendor/bin/dhcpcd -n
     class main
     user dhcp
     group net_admin net_raw
     disabled
     oneshot
 
-service iprenew_p2p /system/bin/dhcpcd -n
+service iprenew_p2p /vendor/bin/dhcpcd -n
     class main
     user dhcp
     group net_admin net_raw
     disabled
     oneshot
 
-service dhcp_inform /system/bin/dhcpcd -s -BK -A
+service dhcp_inform /vendor/bin/dhcpcd -s -BK -A
     class main
     user root
     group system radio dhcp net_admin net_raw
@@ -1150,30 +1150,30 @@ service PPLAgent /vendor/bin/ppl_agent
     group system cache
 
 
-service cmmb /system/bin/cmmbsp
+service cmmb /vendor/bin/cmmbsp
     class main
     user root
     group system audio camera graphics inet net_bt net_bt_admin net_bw_acct media
     ioprio rt 4
 
-service enableswap /system/bin/sh /enableswap.sh
+service enableswap /vendor/bin/sh /enableswap.sh
     class late_start
     oneshot
     seclabel u:r:enableswap:s0
 
-service swapoff_action /system/bin/sh /disableswap.sh
+service swapoff_action /vendor/bin/sh /disableswap.sh
     class main
     disabled
     oneshot
     seclabel u:r:disableswap:s0
 
-service dbus /system/bin/dbus-daemon --system --nofork
+service dbus /vendor/bin/dbus-daemon --system --nofork
     class main
     socket dbus stream 660 bluetooth bluetooth
     user bluetooth
     group bluetooth net_bt_admin
 
-service bluetoothd /system/bin/bluetoothd -n
+service bluetoothd /vendor/bin/bluetoothd -n
     class main
     socket bluetooth stream 660 bluetooth bluetooth
     socket dbus_bluetooth stream 660 bluetooth bluetooth
@@ -1193,14 +1193,14 @@ service bluetoothd /system/bin/bluetoothd -n
 #
 #  Modem related services (Begin)
 #
-service pppd_gprs /system/bin/pppd_dt /dev/ttyACM0 debug noauth refuse-eap usepeerdns nodetach
+service pppd_gprs /vendor/bin/pppd_dt /dev/ttyACM0 debug noauth refuse-eap usepeerdns nodetach
     user root
     group radio cache inet misc
     disabled
     oneshot
 
 ##Add by T.Zh for ppp daemon
-#service pppd /system/bin/pppd file /data/misc/ppp/ppp_options
+#service pppd /vendor/bin/pppd file /data/misc/ppp/ppp_options
 #    user root
 #    disabled
 #    oneshot
@@ -1210,7 +1210,7 @@ service pppd_gprs /system/bin/pppd_dt /dev/ttyACM0 debug noauth refuse-eap usepe
 #  Modem related services (End)
 #
 
-#service agpsdcainit /system/bin/agpscacertinit
+#service agpsdcainit /vendor/bin/agpscacertinit
 #    class main
 #    oneshot
 
@@ -1439,7 +1439,7 @@ service emsvr /vendor/bin/em_svr
 #emsvr service (end)
 #
 
-service shutdown /system/bin/shutdown
+service shutdown /vendor/bin/shutdown
     user root
     group root
     disabled
@@ -1509,7 +1509,7 @@ service guiext-server /vendor/bin/guiext-server
     group system graphics
 
 # OperaMax Service
-service OperaMaxSystem /system/bin/OperaMaxSystem
+service OperaMaxSystem /vendor/bin/OperaMaxSystem
     socket tunman stream 0666 system system
     class main
     disabled
@@ -1554,8 +1554,8 @@ setprop rild.mark_switchuser 0
 
 chmod 0644 /vendor/lib/libzteevdo-ril.so
 chomd 0644 /vendor/lib/zterilPara
-chown root /system/bin/pppd
-chmod 4755 /system/bin/pppd
+chown root /vendor/bin/pppd
+chmod 4755 /vendor/bin/pppd
 chown root /vendor/bin/chat
 chmod 4755 /vendor/bin/chat
 
@@ -1617,7 +1617,7 @@ service vtservice /vendor/bin/vtservice
     group system camera graphics inet net_admin net_raw media sdcard_rw radio sdcard_r media_rw
     ioprio rt 4
 
-service mediacodec /system/bin/mediacodec
+service mediacodec /vendor/bin/mediacodec
     class main
     user mediacodec
     group media system audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm sdcard_r media_rw sdcard_rw
@@ -1653,7 +1653,7 @@ on property:debug.mtk.thermalindicator=1
 	start ThermalIndicator
 
 # Create directory for font change support
-    exec u:r:font_selector_make_dir:s0 system -- /system/bin/font-selector-make-dir.sh
+    exec u:r:font_selector_make_dir:s0 system -- /vendor/bin/font-selector-make-dir.sh
 
 # [Arima_8100][bozhi_lin] FP22589: Battery Swelling mitigation for retail demo units 20161027 begin
 on property:persist.service.battery.charge=0
@@ -1694,7 +1694,7 @@ on property:ro.arima.fcc_mah_4=*
 # [Arima_8100][bozhi_lin] 20161130 end
 
 # [Arima_8100][bozhi_lin] add battery_monitor for debug 20161201 begin
-service ArimaBatMonLog /system/bin/battery_monitor -d enable
+service ArimaBatMonLog /vendor/bin/battery_monitor -d enable
     user root
     group root
     disabled

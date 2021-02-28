@@ -8,7 +8,7 @@
 #
 
 # Start usbeng
-service usbeng /system/bin/usbeng
+service usbeng /vendor/bin/usbeng
     user system
     group system
     class late_start

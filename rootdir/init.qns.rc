@@ -25,12 +25,12 @@ on post-fs-data
     chown qns qns /sys/class/qns/voltage
     start qns
 
-service qns /system/bin/qns -l /qns/ -d /qns/
+service qns /vendor/bin/qns -l /qns/ -d /qns/
     user qns
     group qns
     socket qnsbsd stream 660 qns system
     disabled
 
-#service charge_logging /system/bin/charge_logging
+#service charge_logging /vendor/bin/charge_logging
 #   user root
 #   disabled

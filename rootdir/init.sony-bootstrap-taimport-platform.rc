@@ -10,7 +10,7 @@
 on post-fs-data
     start taimport
 
-service taimport /system/bin/taimport platform
+service taimport /vendor/bin/taimport platform
     user root
     oneshot
     seclabel u:r:taimport:s0

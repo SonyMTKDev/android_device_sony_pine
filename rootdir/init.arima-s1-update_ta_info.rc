@@ -10,7 +10,7 @@
 on init
 
 
-	service update_ta_info /system/bin/update_ta_info
+	service update_ta_info /vendor/bin/update_ta_info
 	class main
 	user root
 	oneshot

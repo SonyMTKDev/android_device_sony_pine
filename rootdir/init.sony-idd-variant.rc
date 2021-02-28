@@ -8,5 +8,5 @@
 #
 
 on fs
-    exec /system/bin/rm -r /idd/lost+found
-    exec /system/bin/rm -r /rca/lost+found
+    exec /vendor/bin/rm -r /idd/lost+found
+    exec /vendor/bin/rm -r /rca/lost+found

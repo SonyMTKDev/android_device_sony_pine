@@ -7,7 +7,7 @@
 # init.sony-bootstrap-updatemiscta.rc
 #
 
-service updatemiscta /system/bin/updatemiscta
+service updatemiscta /vendor/bin/updatemiscta
     class main
     user updatemiscta
     group trimarea

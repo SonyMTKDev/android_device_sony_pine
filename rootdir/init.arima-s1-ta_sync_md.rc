@@ -10,7 +10,7 @@
 on boot
 
 
-service ta_sync_md /system/bin/ta_sync_md
+service ta_sync_md /vendor/bin/ta_sync_md
     class main
     user root
     group system
