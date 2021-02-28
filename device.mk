@@ -221,10 +221,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     busybox
 
-# Doze
-PRODUCT_PACKAGES += \
-    SonyDoze
-
 # FMRadio
 MTK_FM_SUPPORT := true
 
