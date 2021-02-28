@@ -184,6 +184,7 @@ LINKER_FORCED_SHIM_LIBS := \
     /system/vendor/lib64/libvtmal.so|libshim_vt.so \
     /system/vendor/lib/libprogrambinary.so|libshim_program_binary.so \
     /system/vendor/lib64/libprogrambinary.so|libshim_program_binary.so \
+	/system/vendor/bin/program_binary_builder|libshim_program_binary.so \
     /system/vendor/lib/libui_ext.so|libshim_gui.so \
     /system/vendor/lib64/libui_ext.so|libshim_gui.so \
     /system/vendor/lib/libgui_ext.so|libshim_gui.so \
