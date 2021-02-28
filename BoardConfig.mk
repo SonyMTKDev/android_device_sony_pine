@@ -191,7 +191,8 @@ LINKER_FORCED_SHIM_LIBS := \
     /system/vendor/lib64/libgui_ext.so|libshim_gui.so \
     /system/vendor/lib/audio.primary.mt6737t.so|libshim_audio.so \
     /system/vendor/lib64/audio.primary.mt6737t.so|libshim_audio.so \
-	/system/vendor/bin/ipsec_mon|libshim_ifc.so
+	/system/vendor/bin/ipsec_mon|libshim_ifc.so \
+	/system/vendor/lib/libcommonpawrapper.so|libshim_gps.so
 
 # RIL
 BOARD_RIL_CLASS := ../../../$(DEVICE_PATH)/ril
