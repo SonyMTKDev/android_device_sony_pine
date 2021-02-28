@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 The Android Open Source Project
+ * Copyright (c) 2016 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,16 +14,20 @@
  * limitations under the License.
  */
 
+#ifndef SAP_SERVICE_H
+#define SAP_SERVICE_H
 
-#ifndef AUDIO_POLICY_INTERFACE_MTK_H
-#define AUDIO_POLICY_INTERFACE_MTK_H
+#include <telephony/ril.h>
+#include <ril_internal.h>
+#include <RilSapSocket.h>
+#include <hardware/ril/librilutils/proto/sap-api.pb.h>
 
-#include <hardware/audio_policy.h>
+namespace sap {
 
-struct audio_policy_mtk: audio_policy{
-//    struct audio_policy legacy_audio_policy;
-    int (*set_policy_parameters)(struct audio_policy *pol, int par1, int par2, int par3, int par4);
+void registerService(RIL_RadioFunctions *callbacks);
+void processResponse(MsgHeader *rsp, RilSapSocket *sapSocket);
+void processUnsolResponse(MsgHeader *rsp, RilSapSocket *sapSocket);
 
-};
+}   // namespace android
 
-#endif  // AUDIO_POLICY_INTERFACE_MTK_H
+#endif  // RIL_SERVICE_H
