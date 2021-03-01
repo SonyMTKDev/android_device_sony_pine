@@ -65,7 +65,7 @@ LOCAL_SRC_FILES := \
 	vt/MediaBuffer_shim.cpp
 
 LOCAL_MODULE := libshim_vt
-LOCAL_SHARED_LIBRARIES := libskia libstagefright_foundation libui libgui
+LOCAL_SHARED_LIBRARIES := libskia libstagefright_foundation libui libgui libmedia libstagefright
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/skia/include    
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
