@@ -194,6 +194,7 @@ TARGET_LD_SHIM_LIBS := \
 	/system/vendor/bin/ipsec_mon|libshim_ifc.so \
 	/system/vendor/lib/libcommonpawrapper.so|libshim_gps.so \
 	/system/vendor/lib/libshowlogo.so|libshim_asc.so \
+	/system/vendor/lib/libshowlogo.so|libshim_vt.so \
 	/system/vendor/lib64/mtk-ril.so|libshim_ifc.so
 
 # RIL
