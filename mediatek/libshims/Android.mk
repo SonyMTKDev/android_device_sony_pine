@@ -62,7 +62,8 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := \
 	vt/vt_shim.cpp \
 	vt/skia_shim.cpp \
-	vt/MediaBuffer_shim.cpp
+	vt/MediaBuffer_shim.cpp \
+	vt/MediaCodec_shim.cpp
 
 LOCAL_MODULE := libshim_vt
 LOCAL_SHARED_LIBRARIES := libskia libstagefright_foundation libui libgui libmedia libstagefright
