@@ -69,6 +69,18 @@ persist.radio.mtk_dsbp_support=1
 persist.mtk_dynamic_ims_switch=0
 ro.mtk_modem_monitor_support=1
 
+# TA
+ro.semc.product.model=G3311
+ro.semc.ms_type_id=PM-1042-BV
+ro.semc.version.fs=GENERIC
+ro.semc.version.fs_revision=43.0.A.7.106
+ro.semc.product.name=Xperia L1
+ro.semc.product.device=G33
+ro.semc.version.sw_variant=GLOBAL-LTE1A
+ro.semc.version.sw_type=user
+ro.semc.version.sw=1306-9490
+ro.semc.version.sw_revision=43.0.A.7.106
+
 # Wifi
 # MTK, Infinity, 20090720 {
 wifi.interface=wlan0
