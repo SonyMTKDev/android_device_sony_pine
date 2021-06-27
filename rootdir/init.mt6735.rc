@@ -504,7 +504,7 @@ on post-fs-data
     chmod 0666 /dev/mtkfb_vsync
     chown system graphics /dev/mtkfb_vsync
 
-    chmod 0660 /dev/sw_sync
+    chmod 0666 /dev/sw_sync
     chown system graphics /dev/sw_sync
 
     # EM baseband file
