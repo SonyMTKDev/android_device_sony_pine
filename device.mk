@@ -210,11 +210,9 @@ PRODUCT_PACKAGES += \
     libgui_ext \
     libui_ext \
 	libgralloc_extra \
-    android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.mapper@2.0-impl \
-    android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.composer@2.1-service
+    android.hardware.graphics.composer@2.1-impl
 
 # Charger Mode
 PRODUCT_PACKAGES += \
