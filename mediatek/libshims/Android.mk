@@ -121,3 +121,13 @@ LOCAL_MODULE := libshim_audio
 
 LOCAL_PROPRIETARY_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
+
+# TA Shim
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+	ta/ta_values.cpp
+
+LOCAL_MODULE := libshim_ta
+LOCAL_PROPRIETARY_MODULE := true
+include $(BUILD_SHARED_LIBRARY)
